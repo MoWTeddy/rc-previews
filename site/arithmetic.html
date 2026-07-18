@@ -9,26 +9,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f7f3e9'/%3E%3Ctext x='4' y='26' font-family='Georgia,serif' font-weight='500' font-size='25' fill='%2316140e'%3ER%3C/text%3E%3Ctext x='19' y='13' font-family='Georgia,serif' font-size='15' fill='%237d5f28'%3E*%3C/text%3E%3C/svg%3E">
 </head>
 <body>
 
-  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
-    <symbol id="i-fanlight" viewBox="0 0 48 30">
-      <path d="M6 26 A18 18 0 0 1 42 26"/>
-      <line x1="24" y1="8" x2="24" y2="26"/>
-      <line x1="11" y1="13" x2="24" y2="26"/>
-      <line x1="37" y1="13" x2="24" y2="26"/>
-      <line x1="4" y1="26" x2="44" y2="26"/>
-    </symbol>
-  </svg>
 
   <nav class="nav" aria-label="Primary">
     <div class="shell">
-      <a class="wordmark" href="index.html"><svg class="icon" aria-hidden="true"><use href="#i-fanlight"/></svg>Rare Company</a>
+      <a class="wordmark" href="index.html"><span class="rmark" aria-hidden="true">R<sup>*</sup></span>Rare Company</a>
       <div class="nav-links">
         <a href="membership.html">The Membership</a>
         <a href="arithmetic.html" class="active" aria-current="page">The Arithmetic</a>
         <a href="people.html">The People</a>
+        <a href="faq.html">Questions</a>
         <a href="admission.html">Admission</a>
       </div>
       <a class="nav-cta" href="admission.html#form">Request consideration</a>
@@ -150,16 +143,23 @@
   </section>
 
   <!-- ------------------------------ guarantee ------------------------------ -->
-  <section class="sec" id="guarantee">
+  <section class="sec" id="promise">
     <div class="shell sec-grid reveal">
       <div class="sec-rail">
         <p class="kicker">The promise</p>
-        <h2>Quietly guaranteed.</h2>
+        <h2>Quietly guaranteed. Twice.</h2>
       </div>
       <div>
         <div class="guarantee">
-          <p>If, ninety days in, you don't believe membership will pay for itself many times over, we'll return your dues in full and part as friends.</p>
-          <p class="fine">No forms, no argument, no hard feelings</p>
+          <div class="g-clause">
+            <span class="g-label">The first ninety days</span>
+            <p>If, ninety days in, you don't believe membership will pay for itself many times over, we'll return your dues in full and part as friends.</p>
+            <p class="fine">No forms, no argument, no hard feelings</p>
+          </div>
+          <div class="g-clause">
+            <span class="g-label">And every year after</span>
+            <p>Where You Stand puts a number on what membership has been worth: your valuation, measured every year, against £12,000 of dues. If the value isn't clearly there, we'll say so before you do &mdash; and we won't ask you to renew. A membership that has to re-earn its place every year is the only kind worth keeping.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -181,10 +181,11 @@
         <a href="membership.html">The Membership</a>
         <a href="arithmetic.html">The Arithmetic</a>
         <a href="people.html">The People</a>
+        <a href="faq.html">Questions</a>
         <a href="admission.html">Admission</a>
       </nav>
       <div class="foot-legal">
-        <span>Rare Company &middot; The membership for owners who intend to sell</span>
+        <span><span class="rmark" aria-hidden="true">R<sup>*</sup></span>Rare Company &middot; The membership for owners who intend to sell</span>
         <span>By application &middot; United Kingdom &middot; &copy; 2026</span>
       </div>
     </div>
