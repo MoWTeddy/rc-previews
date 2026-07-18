@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Rare Company — mark options</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f7f3e9; --ink: #1e1b13; --ink-dim: rgba(30,27,19,.72); --ink-faint: rgba(30,27,19,.5);
+      --green: #1a4230; --gold: #8a6a2f; --ivory: #f0ebdd; --hair: rgba(30,27,19,.16);
+      --serif: "Newsreader", Georgia, serif; --mono: "IBM Plex Mono", monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--serif); background: var(--paper); color: var(--ink); line-height: 1.6;
+      background-image: repeating-linear-gradient(0deg, rgba(30,27,19,.018) 0 1px, transparent 1px 4px); }
+    .page { max-width: 1060px; margin: 0 auto; padding: clamp(2rem,6vw,4rem) clamp(1.2rem,4vw,3rem) 5rem; }
+    .mono-label { font-family: var(--mono); font-size: .72rem; font-weight: 500; letter-spacing: .28em; text-transform: uppercase; color: var(--green); }
+    h1 { font-weight: 500; font-size: clamp(2rem,4.5vw,3rem); line-height: 1.1; margin-top: .6rem; }
+    .intro { color: var(--ink-dim); max-width: 60ch; margin-top: 1rem; font-size: 1.12rem; }
+    .opts { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem,3vw,2.5rem); margin-top: 3rem; }
+    @media (max-width: 860px) { .opts { grid-template-columns: 1fr; } }
+    .opt { border: 1px solid var(--hair); background: rgba(255,255,255,.35); padding: 1.6rem 1.6rem 1.4rem; }
+    .opt-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+    .opt h2 { font-weight: 500; font-size: 1.45rem; }
+    .opt .num { font-family: var(--mono); font-size: .72rem; color: var(--gold); font-weight: 500; letter-spacing: .15em; }
+    .concept { color: var(--ink-dim); font-size: .98rem; margin-top: .5rem; min-height: 3.1em; }
+    .stage { display: grid; place-items: center; height: 150px; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); margin-top: 1.1rem; }
+    .variants { display: flex; gap: 3rem; align-items: center; }
+    .variant { text-align: center; }
+    .variant .tag { font-family: var(--mono); font-size: .6rem; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-faint); display: block; margin-top: .5rem; }
+    /* contexts row */
+    .ctx { display: grid; grid-template-columns: 1fr auto auto; gap: .8rem; margin-top: 1.1rem; align-items: stretch; }
+    .navmock { display: flex; align-items: center; gap: .7rem; border: 1px solid var(--hair); padding: .7rem .9rem; background: var(--paper); overflow: hidden; }
+    .navmock .wm { font-family: var(--mono); font-size: .72rem; font-weight: 500; letter-spacing: .28em; text-transform: uppercase; white-space: nowrap; }
+    .chip { display: grid; place-items: center; width: 74px; border: 1px solid var(--hair); background: var(--green); }
+    .fav { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .35rem; width: 74px; border: 1px solid var(--hair); background: var(--paper); }
+    .fav .tag { font-family: var(--mono); font-size: .55rem; letter-spacing: .12em; color: var(--ink-faint); text-transform: uppercase; }
+    .favrow { display: flex; align-items: center; gap: .5rem; }
+    /* mark primitives */
+    .mk { display: inline-block; line-height: 1; }
+    svg.mk { stroke: var(--ink); fill: none; stroke-width: 2.2; stroke-linecap: round; }
+    .chip svg.mk { stroke: var(--ivory); }
+    svg.mk .dot { fill: var(--ink); stroke: none; }
+    .chip svg.mk .dot { fill: var(--ivory); }
+    .tx { font-weight: 500; color: var(--ink); }
+    .chip .tx { color: var(--ivory); }
+    .tx .ast { color: var(--gold); }
+    .chip .tx .ast { color: #c8a96a; }
+    .tx.serif { font-family: var(--serif); }
+    .tx.serifi { font-family: var(--serif); font-style: italic; }
+    .tx.monof { font-family: var(--mono); letter-spacing: .04em; }
+    .tx sup { font-size: .58em; vertical-align: .5em; }
+    .note { margin-top: 3.5rem; border-top: 1px solid var(--hair); padding-top: 1.4rem; color: var(--ink-dim); font-size: 1.02rem; max-width: 68ch; }
+    .note em { color: var(--ink); }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <p class="mono-label">Rare Company · Working session</p>
+    <h1>Six marks, in situ.</h1>
+    <p class="intro">Each option shown large, then where it has to earn its keep: beside the wordmark in the nav, reversed on racing green, and at favicon sizes (32px and 16px). Working mocks for direction — the chosen one gets a designer's polish.</p>
+
+    <div class="opts">
+
+      <!-- 1 · THE TABLE -->
+      <section class="opt">
+        <div class="opt-head"><h2>The Table</h2><span class="num">Option 1</span></div>
+        <p class="concept">Plan view of a table for eight — the thing every pillar of the membership happens around. From the floor-plan language we already own.</p>
+        <div class="stage">
+          <svg class="mk" width="92" height="92" viewBox="0 0 48 48" aria-label="Round table with eight seats, plan view">
+            <circle cx="24" cy="24" r="12.5"/>
+            <circle class="dot" cx="43" cy="24" r="2.1"/><circle class="dot" cx="37.4" cy="37.4" r="2.1"/>
+            <circle class="dot" cx="24" cy="43" r="2.1"/><circle class="dot" cx="10.6" cy="37.4" r="2.1"/>
+            <circle class="dot" cx="5" cy="24" r="2.1"/><circle class="dot" cx="10.6" cy="10.6" r="2.1"/>
+            <circle class="dot" cx="24" cy="5" r="2.1"/><circle class="dot" cx="37.4" cy="10.6" r="2.1"/>
+          </svg>
+        </div>
+        <div class="ctx">
+          <div class="navmock"><svg class="mk" width="24" height="24" viewBox="0 0 48 48"><circle cx="24" cy="24" r="12.5"/><circle class="dot" cx="43" cy="24" r="2.4"/><circle class="dot" cx="37.4" cy="37.4" r="2.4"/><circle class="dot" cx="24" cy="43" r="2.4"/><circle class="dot" cx="10.6" cy="37.4" r="2.4"/><circle class="dot" cx="5" cy="24" r="2.4"/><circle class="dot" cx="10.6" cy="10.6" r="2.4"/><circle class="dot" cx="24" cy="5" r="2.4"/><circle class="dot" cx="37.4" cy="10.6" r="2.4"/></svg><span class="wm">Rare Company</span></div>
+          <div class="chip"><svg class="mk" width="30" height="30" viewBox="0 0 48 48"><circle cx="24" cy="24" r="12.5"/><circle class="dot" cx="43" cy="24" r="2.4"/><circle class="dot" cx="37.4" cy="37.4" r="2.4"/><circle class="dot" cx="24" cy="43" r="2.4"/><circle class="dot" cx="10.6" cy="37.4" r="2.4"/><circle class="dot" cx="5" cy="24" r="2.4"/><circle class="dot" cx="10.6" cy="10.6" r="2.4"/><circle class="dot" cx="24" cy="5" r="2.4"/><circle class="dot" cx="37.4" cy="10.6" r="2.4"/></svg></div>
+          <div class="fav"><div class="favrow"><svg class="mk" width="32" height="32" viewBox="0 0 48 48" style="stroke-width:3"><circle cx="24" cy="24" r="12.5"/><circle class="dot" cx="43" cy="24" r="3"/><circle class="dot" cx="37.4" cy="37.4" r="3"/><circle class="dot" cx="24" cy="43" r="3"/><circle class="dot" cx="10.6" cy="37.4" r="3"/><circle class="dot" cx="5" cy="24" r="3"/><circle class="dot" cx="10.6" cy="10.6" r="3"/><circle class="dot" cx="24" cy="5" r="3"/><circle class="dot" cx="37.4" cy="10.6" r="3"/></svg><svg class="mk" width="16" height="16" viewBox="0 0 48 48" style="stroke-width:4.5"><circle cx="24" cy="24" r="12.5"/><circle class="dot" cx="43" cy="24" r="4"/><circle class="dot" cx="37.4" cy="37.4" r="4"/><circle class="dot" cx="24" cy="43" r="4"/><circle class="dot" cx="10.6" cy="37.4" r="4"/><circle class="dot" cx="5" cy="24" r="4"/><circle class="dot" cx="10.6" cy="10.6" r="4"/><circle class="dot" cx="24" cy="5" r="4"/><circle class="dot" cx="37.4" cy="10.6" r="4"/></svg></div><span class="tag">favicon</span></div>
+        </div>
+      </section>
+
+      <!-- 2 · THE DOOR -->
+      <section class="opt">
+        <div class="opt-head"><h2>The Door</h2><span class="num">Option 2</span></div>
+        <p class="concept">A door ajar, drawn plan-view like the doors on our floor plan. Both meanings at once: the way into the room, and the exit everyone here is heading for.</p>
+        <div class="stage">
+          <svg class="mk" width="92" height="92" viewBox="0 0 48 48" aria-label="Door ajar in architectural plan view">
+            <line x1="4" y1="36" x2="16" y2="36"/>
+            <line x1="34" y1="36" x2="44" y2="36"/>
+            <line x1="16" y1="36" x2="16" y2="19"/>
+            <path d="M16 19 A17 17 0 0 1 33 36" style="stroke-width:1.1; opacity:.55"/>
+          </svg>
+        </div>
+        <div class="ctx">
+          <div class="navmock"><svg class="mk" width="24" height="24" viewBox="0 0 48 48"><line x1="4" y1="36" x2="16" y2="36"/><line x1="34" y1="36" x2="44" y2="36"/><line x1="16" y1="36" x2="16" y2="19"/><path d="M16 19 A17 17 0 0 1 33 36" style="stroke-width:1.4; opacity:.55"/></svg><span class="wm">Rare Company</span></div>
+          <div class="chip"><svg class="mk" width="30" height="30" viewBox="0 0 48 48"><line x1="4" y1="36" x2="16" y2="36"/><line x1="34" y1="36" x2="44" y2="36"/><line x1="16" y1="36" x2="16" y2="19"/><path d="M16 19 A17 17 0 0 1 33 36" style="stroke-width:1.4; opacity:.6"/></svg></div>
+          <div class="fav"><div class="favrow"><svg class="mk" width="32" height="32" viewBox="0 0 48 48" style="stroke-width:3.4"><line x1="4" y1="36" x2="16" y2="36"/><line x1="34" y1="36" x2="44" y2="36"/><line x1="16" y1="36" x2="16" y2="19"/><path d="M16 19 A17 17 0 0 1 33 36" style="stroke-width:1.8; opacity:.6"/></svg><svg class="mk" width="16" height="16" viewBox="0 0 48 48" style="stroke-width:5"><line x1="4" y1="36" x2="16" y2="36"/><line x1="34" y1="36" x2="44" y2="36"/><line x1="16" y1="36" x2="16" y2="19"/><path d="M16 19 A17 17 0 0 1 33 36" style="stroke-width:2.6; opacity:.6"/></svg></div><span class="tag">favicon</span></div>
+        </div>
+      </section>
+
+      <!-- 3 · THE ASTERISK -->
+      <section class="opt">
+        <div class="opt-head"><h2>The Asterisk</h2><span class="num">Option 3</span></div>
+        <p class="concept">The footnote mark, set in our own serif — editorial and print-heritage, not the geometric starburst of the AI world. It says: there is more here than what's printed.</p>
+        <div class="stage">
+          <span class="mk tx serif" style="font-size:120px; transform: translateY(.32em); color: var(--gold)">*</span>
+        </div>
+        <div class="ctx">
+          <div class="navmock"><span class="mk tx serif" style="font-size:34px; transform: translateY(.3em); color: var(--gold)">*</span><span class="wm">Rare Company</span></div>
+          <div class="chip"><span class="mk tx serif" style="font-size:40px; transform: translateY(.3em); color: #c8a96a">*</span></div>
+          <div class="fav"><div class="favrow"><span class="mk tx serif" style="font-size:44px; transform: translateY(.3em); color: var(--gold)">*</span><span class="mk tx serif" style="font-size:24px; transform: translateY(.3em); color: var(--gold)">*</span></div><span class="tag">favicon</span></div>
+        </div>
+      </section>
+
+      <!-- 4 · THE MONOGRAM -->
+      <section class="opt">
+        <div class="opt-head"><h2>The Monogram</h2><span class="num">Option 4</span></div>
+        <p class="concept">RC in italic serif, drawn close — the classic members'-club move. Safest of the six, quietly premium, at home on a place card or a signet.</p>
+        <div class="stage">
+          <span class="mk tx serifi" style="font-size:78px; letter-spacing:-.06em">R<span style="margin-left:-.1em">C</span></span>
+        </div>
+        <div class="ctx">
+          <div class="navmock"><span class="mk tx serifi" style="font-size:26px; letter-spacing:-.06em">R<span style="margin-left:-.1em">C</span></span><span class="wm">Rare Company</span></div>
+          <div class="chip"><span class="mk tx serifi" style="font-size:30px; letter-spacing:-.06em">R<span style="margin-left:-.1em">C</span></span></div>
+          <div class="fav"><div class="favrow"><span class="mk tx serifi" style="font-size:26px; letter-spacing:-.06em">R<span style="margin-left:-.1em">C</span></span><span class="mk tx serifi" style="font-size:14px; letter-spacing:-.06em">R<span style="margin-left:-.1em">C</span></span></div><span class="tag">favicon</span></div>
+        </div>
+      </section>
+
+      <!-- 5 · R ASTERISK -->
+      <section class="opt">
+        <div class="opt-head"><h2>R‑Asterisk</h2><span class="num">Option 5</span></div>
+        <p class="concept">The initial with a footnote — the R carries the name, the asterisk carries the secret. Shown in the heading serif and in the wordmark mono.</p>
+        <div class="stage">
+          <div class="variants">
+            <div class="variant"><span class="mk tx serif" style="font-size:76px">R<sup class="ast">*</sup></span><span class="tag">Newsreader (headings)</span></div>
+            <div class="variant"><span class="mk tx monof" style="font-size:64px">R<sup class="ast">*</sup></span><span class="tag">Plex Mono (wordmark)</span></div>
+          </div>
+        </div>
+        <div class="ctx">
+          <div class="navmock"><span class="mk tx serif" style="font-size:27px">R<sup class="ast">*</sup></span><span class="wm">Rare Company</span></div>
+          <div class="chip"><span class="mk tx serif" style="font-size:30px">R<sup class="ast">*</sup></span></div>
+          <div class="fav"><div class="favrow"><span class="mk tx serif" style="font-size:26px">R<sup class="ast">*</sup></span><span class="mk tx serif" style="font-size:14px">R<sup class="ast">*</sup></span></div><span class="tag">favicon</span></div>
+        </div>
+      </section>
+
+      <!-- 6 · RC ASTERISK -->
+      <section class="opt">
+        <div class="opt-head"><h2>RC‑Asterisk</h2><span class="num">Option 6</span></div>
+        <p class="concept">Both initials, footnoted. Fuller than the single R; the asterisk reads as the third character of a private shorthand. Shown in both faces.</p>
+        <div class="stage">
+          <div class="variants">
+            <div class="variant"><span class="mk tx serif" style="font-size:64px">RC<sup class="ast">*</sup></span><span class="tag">Newsreader (headings)</span></div>
+            <div class="variant"><span class="mk tx monof" style="font-size:52px">RC<sup class="ast">*</sup></span><span class="tag">Plex Mono (wordmark)</span></div>
+          </div>
+        </div>
+        <div class="ctx">
+          <div class="navmock"><span class="mk tx serif" style="font-size:25px">RC<sup class="ast">*</sup></span><span class="wm">Rare Company</span></div>
+          <div class="chip"><span class="mk tx serif" style="font-size:27px">RC<sup class="ast">*</sup></span></div>
+          <div class="fav"><div class="favrow"><span class="mk tx serif" style="font-size:24px">RC<sup class="ast">*</sup></span><span class="mk tx serif" style="font-size:13px">RC<sup class="ast">*</sup></span></div><span class="tag">favicon</span></div>
+        </div>
+      </section>
+
+    </div>
+
+    <p class="note"><em>Reading notes.</em> The Table and the Door are the two with a story only Rare Company can tell; the asterisk family is the punchiest in small sizes and pairs naturally with the footnote idea of an off-record membership — set in serif it avoids reading as an AI starburst. The Monogram is the safe harbour. In the letter-marks, the asterisk sits in gold at footnote height, which keeps it a detail rather than a shout. Whichever direction wins, a brand designer should cut the final artwork, and the name-plus-mark should get a UK trademark search before it goes on anything permanent.</p>
+  </main>
+</body>
+</html>
