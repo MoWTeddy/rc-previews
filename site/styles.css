@@ -336,8 +336,33 @@ footer { border-top: 1px solid var(--hairline); padding: 1.8rem 0 2.4rem; }
 .circles-fig .callout .pt { fill: var(--ink); }
 .circles-fig .callout .pt.green { fill: var(--green); }
 .circles-fig.wide { max-width: 760px; margin: 0 auto; position: static; }
+.pillars-after-fig { margin-top: 3rem; }
 .circles-fig.wide .c-name { font-size: 26px; }
 .circles-fig.wide .c-meta { font-size: 11px; letter-spacing: .12em; }
 .circles-fig figcaption { margin-top: 1.1rem; font-style: italic; color: var(--ink-dim); font-size: .95rem; text-align: center; }
 .circles-center { max-width: 520px; margin: 0 auto; }
 @media (max-width: 1080px) { .circles-fig { position: static; max-width: 420px; margin: 0 auto; } }
+
+
+/* circles diagram draw-in (enhancement only: resting state fully visible) */
+@media (prefers-reduced-motion: no-preference) {
+  .circles-fig.drawn .ring { transform-box: fill-box; transform-origin: center; animation: rc-ring .7s var(--ease) backwards; }
+  .circles-fig.drawn .ring:nth-of-type(1) { animation-delay: .6s; }
+  .circles-fig.drawn .ring:nth-of-type(2) { animation-delay: .4s; }
+  .circles-fig.drawn .ring:nth-of-type(3) { animation-delay: .2s; }
+  .circles-fig.drawn .ring:nth-of-type(4) { animation-delay: 0s; }
+  .circles-fig.drawn .callout line { transform-box: fill-box; transform-origin: left center; animation: rc-line .45s var(--ease) backwards; }
+  .circles-fig.drawn .callout .pt, .circles-fig.drawn .callout text { animation: rc-fade .5s var(--ease) backwards; }
+  .circles-fig.drawn .callout:nth-of-type(1) line { animation-delay: 1.05s; }
+  .circles-fig.drawn .callout:nth-of-type(1) .pt, .circles-fig.drawn .callout:nth-of-type(1) text { animation-delay: 1.25s; }
+  .circles-fig.drawn .callout:nth-of-type(2) line { animation-delay: .85s; }
+  .circles-fig.drawn .callout:nth-of-type(2) .pt, .circles-fig.drawn .callout:nth-of-type(2) text { animation-delay: 1.05s; }
+  .circles-fig.drawn .callout:nth-of-type(3) line { animation-delay: .65s; }
+  .circles-fig.drawn .callout:nth-of-type(3) .pt, .circles-fig.drawn .callout:nth-of-type(3) text { animation-delay: .85s; }
+  .circles-fig.drawn .callout:nth-of-type(4) line { animation-delay: .35s; }
+  .circles-fig.drawn .callout:nth-of-type(4) .pt, .circles-fig.drawn .callout:nth-of-type(4) text { animation-delay: .55s; }
+  .circles-fig.drawn figcaption { animation: rc-fade .6s var(--ease) 1.5s backwards; }
+}
+@keyframes rc-ring { from { opacity: 0; transform: scale(.82); } }
+@keyframes rc-line { from { transform: scaleX(0); } }
+@keyframes rc-fade { from { opacity: 0; transform: translateY(6px); } }

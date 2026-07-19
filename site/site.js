@@ -50,3 +50,16 @@
       .then(function () { form.hidden = true; confirmation.hidden = false; });
   });
 })();
+
+/* circles diagram: one-shot draw-in when scrolled into view (visible regardless) */
+(function () {
+  var figs = document.querySelectorAll('.circles-fig');
+  if (!figs.length) return;
+  if (!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.add('drawn'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.35 });
+  figs.forEach(function (f) { io.observe(f); });
+})();
