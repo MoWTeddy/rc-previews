@@ -431,15 +431,18 @@ table.scenarios { width: 100%; border-collapse: collapse; margin-top: 2.2rem; }
 
 /* mobile menu (native details, no JS needed) */
 .nav-menu { display: none; position: relative; }
-.nav-menu summary { list-style: none; cursor: pointer; display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid var(--hairline); border-radius: 8px; }
+.nav-menu summary { list-style: none; cursor: pointer; display: grid; place-items: center; width: 40px; height: 40px; }
 .nav-menu summary::-webkit-details-marker { display: none; }
-.nav-menu summary svg { width: 18px; height: 14px; stroke: var(--ink); stroke-width: 1.8; stroke-linecap: round; fill: none; }
-.nav-menu[open] summary { background: var(--green); border-color: var(--green); }
-.nav-menu[open] summary svg { stroke: var(--paper-ivory); }
+.nav-menu summary svg { width: 20px; height: 15px; stroke: var(--ink); stroke-width: 1.8; stroke-linecap: round; fill: none; }
+.nav-menu[open] summary svg { stroke: var(--green); }
 .nav-drop { position: absolute; right: 0; top: calc(100% + 10px); z-index: 30; min-width: 200px; background: var(--ivory); border: 1px solid var(--hairline); border-radius: 10px; box-shadow: 0 10px 30px rgba(22, 20, 14, .12); padding: .6rem 0; display: flex; flex-direction: column; }
 .nav-drop a { font-family: var(--mono); font-size: .72rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; text-decoration: none; color: var(--ink); padding: .75rem 1.2rem; }
 .nav-drop a:hover { color: var(--green); background: var(--green-soft); }
-@media (max-width: 1020px) { .nav-menu { display: block; } }
+@media (max-width: 1020px) {
+  .nav-menu { display: block; }
+  .nav .shell { gap: 1rem; }
+  .nav-cta { margin-left: auto; }
+}
 
 /* benefit line-art icons: small, top-right corner */
 .benefit .sec-grid { position: relative; }
