@@ -35,7 +35,7 @@ body {
 .prose p + p { margin-top: 1.35rem; }
 .prose .turn { color: var(--ink); font-style: italic; }
 @media (max-width: 860px) {
-  .sec-grid { grid-template-columns: 1fr; gap: 1.4rem; }
+  .sec-grid { grid-template-columns: minmax(0, 1fr); gap: 1.4rem; }
   .sec-rail { position: static; }
   .sec h2 { max-width: none; }
 }
@@ -450,3 +450,41 @@ table.scenarios { width: 100%; border-collapse: collapse; margin-top: 2.2rem; }
 .b-illo svg { width: 100%; height: auto; stroke: var(--green); stroke-width: 2; stroke-linecap: round; fill: none; }
 .pillar.compact .b-illo { top: 1.1rem; right: 1.1rem; width: 64px; }
 @media (max-width: 560px) { .b-illo { width: 62px; } }
+
+/* green promise band */
+.band-green .shell { background: var(--green); border-radius: var(--radius); padding: 2.2rem clamp(1.5rem, 4vw, 2.8rem) 2.4rem; }
+.band-green .kicker { color: #c8a96a; }
+.band-green .band-line { color: var(--paper-ivory); }
+.band-green .more-link { color: #c8a96a; border-color: #c8a96a; }
+.band-green .more-link:hover { color: var(--ivory); border-color: var(--ivory); }
+@media (max-width: 680px) { .band-green .shell { margin-left: 1rem; margin-right: 1rem; width: auto; } }
+
+/* member marquee */
+.member-marquee { overflow: hidden; max-width: 100%; min-width: 0; margin-top: .4rem; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.marquee-track { display: flex; gap: 1rem; width: max-content; animation: rc-marquee 45s linear infinite; }
+.member-marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes rc-marquee { to { transform: translateX(-50%); } }
+.m-tile { flex: none; width: 168px; background: var(--green-soft); border-radius: var(--radius); padding: 1.1rem 1rem 1.2rem; }
+.m-tile .m-avatar { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--green); margin-bottom: .8rem; }
+.m-tile .m-avatar svg { width: 17px; height: 17px; stroke: #c8a96a; stroke-width: 2.6; stroke-linecap: round; fill: none; }
+.m-tile .m-name { display: block; font-weight: 500; font-size: .98rem; }
+.m-tile .m-meta { display: block; font-family: var(--mono); font-size: .58rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-faint); margin-top: .3rem; line-height: 1.7; }
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+  .member-marquee { overflow-x: auto; mask-image: none; -webkit-mask-image: none; }
+}
+
+/* founders band on home */
+.founder-pair { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+.fp-photo { width: 108px; height: 128px; object-fit: cover; border-radius: var(--radius); filter: grayscale(1) sepia(.14) contrast(1.02); }
+
+/* about: founders on green */
+.sec-green .founder { border-top-color: rgba(240, 235, 221, .25); }
+.sec-green .founder .name { color: var(--paper-ivory); }
+.sec-green .founder .role { color: #c8a96a; }
+.sec-green .founder p { color: rgba(240, 235, 221, .78); }
+
+/* about: quotes as soft green cards */
+.quotes .quote { background: var(--green-soft); border-radius: var(--radius); border-top: none; padding: 1.5rem 1.5rem 1.3rem; }
+.quotes .quote + .quote { margin-top: 1.1rem; }
+.quotes .quote blockquote { border: none; padding: 0; }
