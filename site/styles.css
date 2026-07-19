@@ -511,3 +511,6 @@ table.scenarios { width: 100%; border-collapse: collapse; margin-top: 2.2rem; }
 .interest-box .check-field .check input { width: 17px; height: 17px; padding: 0; margin-top: .18em; border-radius: 4px; background-color: rgba(240, 235, 221, .07); border: 1px solid rgba(240, 235, 221, .45); }
 .interest-box .check-field .check input:checked { background-color: var(--paper-ivory); border-color: var(--paper-ivory); }
 .interest-box .check-field .check span { font-family: var(--serif); font-size: 1rem; font-weight: 400; letter-spacing: 0; text-transform: none; color: rgba(240, 235, 221, .88); line-height: 1.45; }
+
+/* founders band: names under portraits */
+.fp-names { font-family: var(--mono); font-size: .68rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: #c8a96a; margin-bottom: 1rem; }
