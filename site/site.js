@@ -60,6 +60,6 @@
     entries.forEach(function (en) {
       if (en.isIntersecting) { en.target.classList.add('drawn'); io.unobserve(en.target); }
     });
-  }, { threshold: 0.35 });
+  }, { threshold: 0.55, rootMargin: '0px 0px -10% 0px' });
   figs.forEach(function (f) { io.observe(f); });
 })();
