@@ -514,3 +514,17 @@ table.scenarios { width: 100%; border-collapse: collapse; margin-top: 2.2rem; }
 
 /* founders band: names under portraits */
 .fp-names { font-family: var(--mono); font-size: .68rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: #c8a96a; margin-bottom: 1rem; }
+
+/* about: double marquee, smaller tiles, second row reversed */
+.member-marquee + .member-marquee { margin-top: 1rem; }
+.member-marquee.row2 .marquee-track { animation-duration: 58s; animation-direction: reverse; }
+.m-tile.sm { width: 148px; padding: .95rem .9rem 1rem; }
+.m-tile.sm .m-avatar { width: 38px; height: 38px; margin-bottom: .65rem; }
+.m-tile.sm .m-name { font-size: .9rem; }
+
+/* return section on green (pricing) */
+.sec-green .scenarios thead th { color: rgba(240, 235, 221, .6); border-bottom-color: rgba(240, 235, 221, .7); }
+.sec-green .scenarios tbody td { color: var(--paper-ivory); border-top-color: rgba(240, 235, 221, .22); }
+.sec-green .scenarios td.s-result { color: #c8a96a; }
+.sec-green .scenarios-caption { color: rgba(240, 235, 221, .65); }
+.sec-green .eq-prose p, .sec-green .prose p { color: rgba(240, 235, 221, .82); }
