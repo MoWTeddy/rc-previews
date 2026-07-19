@@ -412,3 +412,28 @@ table.scenarios { width: 100%; border-collapse: collapse; margin-top: 2.2rem; }
   .scenarios tbody td { font-size: .98rem; padding-right: .6rem; }
   .scenarios td.s-fee { font-size: .6rem; }
 }
+
+/* testimonial avatar placeholders */
+.voice-card figcaption { display: flex; align-items: center; gap: .85rem; }
+.v-avatar { flex: none; width: 46px; height: 46px; border-radius: 50%; background: var(--green); display: grid; place-items: center; }
+.v-avatar svg { width: 18px; height: 18px; stroke: #c8a96a; stroke-width: 2.6; stroke-linecap: round; fill: none; }
+
+/* circles diagram: readable labels on small screens via HTML legend */
+.circles-legend { display: none; }
+@media (max-width: 680px) {
+  .circles-fig .callout text { display: none; }
+  .circles-fig .callout line, .circles-fig .callout .pt { display: none; }
+  .circles-fig { overflow: hidden; }
+  .circles-fig svg { width: 172%; max-width: none; margin-left: 4%; }
+  .circles-legend { display: block; list-style: none; margin: 1.4rem 0 0; }
+  .circles-legend li { border-top: 1px solid var(--hairline); padding: .75rem .1rem; }
+  .circles-legend li:last-child b { color: var(--green); }
+  .circles-legend b { display: block; font-weight: 500; font-size: 1.08rem; }
+  .circles-legend span { display: block; font-family: var(--mono); font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-faint); margin-top: .25rem; }
+}
+
+/* floating green surfaces: guaranteed ivory inset on mobile */
+@media (max-width: 680px) {
+  .sec-green .sec-grid { margin-left: 1rem; margin-right: 1rem; padding: 1.7rem 1.4rem; }
+  .benefit .sec-grid { margin-left: 1rem; margin-right: 1rem; }
+}
