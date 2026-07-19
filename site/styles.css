@@ -544,3 +544,10 @@ table.scenarios { width: 100%; border-collapse: collapse; margin-top: 2.2rem; }
 .benefit .sec-grid h2 { color: var(--paper-ivory); }
 .benefit .sec-grid .prose p { color: rgba(240, 235, 221, .82); }
 .benefit .sec-grid .b-illo svg { stroke: #c8a96a; opacity: .9; }
+
+/* alternate deep green / soft tint down the benefit stack */
+.benefit:nth-of-type(even) .sec-grid { background: var(--green-soft); }
+.benefit:nth-of-type(even) .sec-grid .kicker { color: var(--green); }
+.benefit:nth-of-type(even) .sec-grid h2 { color: var(--ink); }
+.benefit:nth-of-type(even) .sec-grid .prose p { color: var(--ink-dim); }
+.benefit:nth-of-type(even) .sec-grid .b-illo svg { stroke: var(--green); }
