@@ -299,3 +299,36 @@ footer { border-top: 1px solid var(--hairline); padding: 1.8rem 0 2.4rem; }
 .closing.grand .big { font-size: clamp(2.1rem, 4.6vw, 3.3rem); max-width: 22ch; }
 .closing.grand .grand-fine { margin: 1.6rem auto 0; max-width: 46ch; color: var(--ink-dim); font-size: 1.12rem; }
 .closing.grand .btn { margin-top: 2.6rem; padding: 1.15rem 3.4rem; }
+
+/* green feature panel (home: The Position) */
+.sec-green { background: var(--green); }
+.sec-green .kicker { color: #c8a96a; }
+.sec-green h2 { color: var(--ivory, #f0ebdd); }
+.sec-green .prose p { color: rgba(240, 235, 221, .82); }
+.sec-green .prose .turn { color: #f0ebdd; }
+.sec + .sec-green, .sec-green + .sec { border-top: none; }
+
+/* home testimonial cards */
+#voices .kicker { margin-bottom: 1.8rem; }
+.voice-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.2rem, 2.5vw, 2rem); }
+.voice-card { margin: 0; background: #fffdf6; border: 1px solid var(--hairline); padding: 1.8rem 1.7rem 1.5rem; display: flex; flex-direction: column; gap: 1.3rem; }
+.voice-card blockquote { margin: 0; font-style: italic; font-size: 1.12rem; line-height: 1.6; color: var(--ink); flex: 1; }
+.voice-card blockquote::before { content: "\201C"; display: block; font-size: 2.2rem; line-height: .6; color: var(--gold); margin-bottom: .6rem; font-style: normal; }
+.voice-card figcaption { border-top: 1px solid var(--hairline); padding-top: .9rem; }
+.voice-card .v-name { display: block; font-weight: 500; font-size: 1.02rem; }
+.voice-card .v-meta { display: block; font-family: var(--mono); font-size: .66rem; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-faint); margin-top: .3rem; }
+@media (max-width: 860px) { .voice-cards { grid-template-columns: 1fr; } }
+
+/* membership structure circles */
+.include-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 360px); gap: clamp(1.5rem, 4vw, 3.5rem); align-items: start; }
+@media (max-width: 1080px) { .include-grid { grid-template-columns: 1fr; } }
+.circles-fig { margin: 0; position: sticky; top: 7rem; }
+.circles-fig svg { display: block; width: 100%; height: auto; }
+.circles-fig .ring { fill: none; stroke: rgba(30, 27, 19, .45); stroke-width: 1.2; stroke-dasharray: 5 6; }
+.circles-fig .ring.solid { stroke: var(--green); stroke-dasharray: none; stroke-width: 1.4; fill: rgba(26, 66, 48, .06); }
+.circles-fig .c-name { font-family: var(--serif); font-size: 25px; font-weight: 500; fill: var(--ink); }
+.circles-fig .c-name.small { font-size: 17px; }
+.circles-fig .c-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; fill: rgba(30, 27, 19, .55); }
+.circles-fig figcaption { margin-top: 1.1rem; font-style: italic; color: var(--ink-dim); font-size: .95rem; text-align: center; }
+.circles-center { max-width: 520px; margin: 0 auto; }
+@media (max-width: 1080px) { .circles-fig { position: static; max-width: 420px; margin: 0 auto; } }
