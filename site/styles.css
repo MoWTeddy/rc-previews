@@ -532,3 +532,8 @@ table.scenarios { width: 100%; border-collapse: collapse; margin-top: 2.2rem; }
 /* links inside green sections were rendering green-on-green */
 .sec-green .more-link { color: #c8a96a; border-color: #c8a96a; }
 .sec-green .more-link:hover { color: var(--ivory); border-color: var(--ivory); }
+
+/* hero: quiet explore link under the CTA */
+.hero-explore { margin-top: 1.6rem; font-size: 1.02rem; color: var(--ink-faint); }
+.hero-explore a { color: var(--green); text-decoration: none; border-bottom: 1px solid var(--green); padding-bottom: .15rem; transition: color .3s var(--ease), border-color .3s var(--ease); }
+.hero-explore a:hover { color: var(--gold); border-color: var(--gold); }
