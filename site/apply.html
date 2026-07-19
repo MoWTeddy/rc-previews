@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=10">
+  <link rel="stylesheet" href="styles.css?v=11">
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2032%2032%27%3E%3Crect%20width=%2732%27%20height=%2732%27%20fill=%27%23f7f3e9%27/%3E%3Cg%20transform=%27translate(5,27)%20scale(0.0315,-0.0315)%27%3E%3Cpath%20d=%27M195%200H84V698H345Q445%20698%20497.5%20642.0Q550%20586%20550%20488Q550%20408%20511.0%20356.0Q472%20304%20399%20292L560%200H436L288%20282H195ZM329%20372Q433%20372%20433%20467V510Q433%20605%20329%20605H195V372Z%27%20fill=%27%2316140e%27/%3E%3C/g%3E%3Cg%20stroke=%27%237d5f28%27%20stroke-width=%271.7%27%20stroke-linecap=%27round%27%20fill=%27none%27%3E%3Cpath%20d=%27M25.8%202.5v6.4M23.03%204.1l5.54%203.2M28.57%204.1l-5.54%203.2%27/%3E%3C/g%3E%3C/svg%3E">
 </head>
 <body>
@@ -144,28 +144,50 @@
             <div class="field"><label for="f-email">Email</label><input type="email" id="f-email" name="email" autocomplete="email" required></div>
           </div>
           <div class="field-row">
-            <div class="field"><label for="f-business">Business name</label><input type="text" id="f-business" name="business" autocomplete="organization" required></div>
-            <div class="field"><label for="f-website">Website</label><input type="url" id="f-website" name="website" inputmode="url" placeholder="https://" autocomplete="url"></div>
+            <div class="field"><label for="f-website">Company website</label><input type="url" id="f-website" name="website" inputmode="url" placeholder="https://" autocomplete="url" required></div>
+            <div class="field"><label for="f-linkedin">LinkedIn profile</label><input type="url" id="f-linkedin" name="linkedin" inputmode="url" placeholder="https://linkedin.com/in/"></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label for="f-founded">Year the company started</label><input type="number" id="f-founded" name="founded" inputmode="numeric" min="1950" max="2026" placeholder="e.g. 2014"></div>
+            <div class="field">
+              <label for="f-turnover">Average monthly turnover</label>
+              <select id="f-turnover" name="turnover">
+                <option value="" selected disabled>Select one</option>
+                <option>Under £50,000</option>
+                <option>£50,000 &ndash; £150,000</option>
+                <option>£150,000 &ndash; £400,000</option>
+                <option>Over £400,000</option>
+              </select>
+            </div>
           </div>
           <div class="field">
-            <label for="f-horizon">When do you intend to sell?</label>
-            <select id="f-horizon" name="horizon" required>
+            <label for="f-value">What would you guess the business is worth today?</label>
+            <select id="f-value" name="value">
               <option value="" selected disabled>Select one</option>
-              <option>Within two years</option>
-              <option>Two to five years</option>
-              <option>I've already exited</option>
-              <option>Undecided</option>
+              <option>Under £1 million</option>
+              <option>£1 &ndash; £2 million</option>
+              <option>£2 &ndash; £5 million</option>
+              <option>£5 &ndash; £10 million</option>
+              <option>Over £10 million</option>
+              <option>Honestly, not sure &ndash; that's part of why I'm here</option>
             </select>
           </div>
-          <div class="field">
-            <label for="f-note">Short note</label>
-            <textarea id="f-note" name="note" rows="4" placeholder="A line or two on your business, and where you are on the road to a sale."></textarea>
-          </div>
+          <fieldset class="field check-field">
+            <legend>What's brought you here? Tick all that apply.</legend>
+            <div class="check-grid">
+              <label class="check"><input type="checkbox" name="motivation" value="selling-soon"><span>I plan to sell within the next five years</span></label>
+              <label class="check"><input type="checkbox" name="motivation" value="maximise-value"><span>I want to maximise what the business sells for</span></label>
+              <label class="check"><input type="checkbox" name="motivation" value="know-worth"><span>I want to know what it's actually worth</span></label>
+              <label class="check"><input type="checkbox" name="motivation" value="peers"><span>I want to be around owners who've done it</span></label>
+              <label class="check"><input type="checkbox" name="motivation" value="live-decision"><span>There's a decision on my desk right now</span></label>
+              <label class="check"><input type="checkbox" name="motivation" value="exited"><span>I've already exited &ndash; I'd sit on the other side of the table</span></label>
+            </div>
+          </fieldset>
           <div class="form-foot">
             <button type="submit" class="btn btn-ivory">Submit application</button>
             <span class="form-fine">Held in confidence. We reply to every request.</span>
           </div>
-          <p class="form-error" id="form-error" role="alert" hidden>Please complete your name, email, business and intended timeframe.</p>
+          <p class="form-error" id="form-error" role="alert" hidden>Please complete your name, email and company website.</p>
         </form>
 
         <div class="confirmation" id="form-confirmation" hidden>
@@ -201,6 +223,6 @@
     </div>
   </footer>
 
-  <script src="site.js?v=10"></script>
+  <script src="site.js?v=11"></script>
 </body>
 </html>

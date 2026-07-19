@@ -22,8 +22,7 @@
 
   var form = document.getElementById('interest-form');
   if (!form) return;
-  var horizonSel = document.getElementById('f-horizon');
-  var errorLine = document.getElementById('form-error');
+    var errorLine = document.getElementById('form-error');
   var confirmation = document.getElementById('form-confirmation');
 
   function handleRequest(data) {
@@ -36,7 +35,7 @@
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var required = ['f-name', 'f-email', 'f-business', 'f-horizon'], ok = true;
+    var required = ['f-name', 'f-email', 'f-website'], ok = true;
     required.forEach(function (id) {
       var fld = document.getElementById(id);
       var good = fld.value.trim() !== '' && fld.checkValidity();
@@ -45,8 +44,12 @@
     });
     errorLine.hidden = ok;
     if (!ok) return;
-    handleRequest({ name: val('f-name'), email: val('f-email'), business: val('f-business'),
-      website: val('f-website'), horizon: horizonSel.value, note: val('f-note') })
+    var motivations = Array.prototype.map.call(
+      document.querySelectorAll('input[name="motivation"]:checked'), function (c) { return c.value; });
+    handleRequest({ name: val('f-name'), email: val('f-email'), website: val('f-website'),
+      linkedin: val('f-linkedin'), founded: val('f-founded'),
+      turnover: document.getElementById('f-turnover').value,
+      value: document.getElementById('f-value').value, motivation: motivations })
       .then(function () { form.hidden = true; confirmation.hidden = false; });
   });
 })();
