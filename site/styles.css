@@ -528,3 +528,7 @@ table.scenarios { width: 100%; border-collapse: collapse; margin-top: 2.2rem; }
 .sec-green .scenarios td.s-result { color: #c8a96a; }
 .sec-green .scenarios-caption { color: rgba(240, 235, 221, .65); }
 .sec-green .eq-prose p, .sec-green .prose p { color: rgba(240, 235, 221, .82); }
+
+/* links inside green sections were rendering green-on-green */
+.sec-green .more-link { color: #c8a96a; border-color: #c8a96a; }
+.sec-green .more-link:hover { color: var(--ivory); border-color: var(--ivory); }
