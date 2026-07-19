@@ -288,3 +288,14 @@ footer { border-top: 1px solid var(--hairline); padding: 1.8rem 0 2.4rem; }
   * { transition-duration: .01ms !important; }
   .reveal.pre { opacity: 1; transform: none; }
 }
+
+/* -------- explore-membership additions -------- */
+.section-lede { margin-top: 1.2rem; max-width: 52ch; font-size: clamp(1.15rem, 1.8vw, 1.32rem); color: var(--ink-dim); }
+.steps.compact li { padding: 1.15rem 0; grid-template-columns: 3.2rem minmax(0, 1fr); }
+.steps.compact b { font-size: 1.14rem; }
+.steps.compact p { margin-top: .25rem; font-size: .98rem; }
+.closing.grand { border-top: 1px solid var(--rule, var(--hairline)); padding: clamp(5.5rem, 14vh, 9rem) 0; background: var(--green-soft); }
+.closing.grand .kicker { margin-bottom: 1.4rem; }
+.closing.grand .big { font-size: clamp(2.1rem, 4.6vw, 3.3rem); max-width: 22ch; }
+.closing.grand .grand-fine { margin: 1.6rem auto 0; max-width: 46ch; color: var(--ink-dim); font-size: 1.12rem; }
+.closing.grand .btn { margin-top: 2.6rem; padding: 1.15rem 3.4rem; }
