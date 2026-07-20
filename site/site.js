@@ -75,7 +75,7 @@
   if (!chart) return;
   var clip = chart.querySelector('.g-clip');
   var dot = chart.querySelector('.gauge-dot');
-  var X0 = 24, X1 = 384, YB = 224, YT = 30, START = 2000000, END = 25000000;
+  var X0 = 24, X1 = 396, YB = 224, YT = 30, START = 2000000, END = 25000000;
   function ease(t) { return t * t * t; }
   function fmt(n) { return '£' + Math.round(n).toLocaleString('en-GB'); }
   function frame(p) {
@@ -103,10 +103,5 @@
     frame(0);
     requestAnimationFrame(function (ts) { run(ts); });
   }
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { if (e.isIntersecting) { begin(); io.disconnect(); } });
-    }, { threshold: 0.4 });
-    io.observe(chart);
-  } else { begin(); }
+  begin();   // hero is always at the top: run on load
 })();
