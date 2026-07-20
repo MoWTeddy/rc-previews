@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Rare Company — asterisk position</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+  <style>
+    :root { --paper:#f7f3e9; --ink:#16140e; --ink-dim:rgba(22,20,14,.72); --ink-faint:rgba(22,20,14,.48); --green:#1a4230; --gold:#7d5f28; --hair:rgba(22,20,14,.16); --serif:"Newsreader",Georgia,serif; --mono:"IBM Plex Mono",monospace; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:var(--serif); background:var(--paper); color:var(--ink); line-height:1.6;
+      background-image:repeating-linear-gradient(0deg, rgba(22,20,14,.045) 0 1px, transparent 1px 5px); }
+    .page { max-width:960px; margin:0 auto; padding:clamp(2rem,6vw,4rem) clamp(1.2rem,4vw,3rem) 5rem; }
+    .kicker { font-family:var(--mono); font-size:.72rem; font-weight:500; letter-spacing:.28em; text-transform:uppercase; color:var(--green); }
+    h1 { font-weight:500; font-size:clamp(2rem,4.5vw,3rem); line-height:1.1; margin-top:.6rem; }
+    .intro { color:var(--ink-dim); max-width:60ch; margin-top:1rem; font-size:1.1rem; }
+    h2 { font-weight:500; font-size:1.4rem; margin:3rem 0 1.2rem; }
+    .row { display:grid; grid-template-columns:1fr 1fr; gap:clamp(1.5rem,3vw,2.5rem); }
+    @media (max-width:760px){ .row { grid-template-columns:1fr; } }
+    .cell { border:1px solid var(--hair); border-radius:10px; background:rgba(255,255,255,.4); padding:1.6rem; }
+    .cell .tag { font-family:var(--mono); font-size:.62rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-faint); }
+    .stage { display:grid; place-items:center; min-height:120px; border-top:1px solid var(--hair); border-bottom:1px solid var(--hair); margin-top:1rem; padding:1.2rem 0; }
+    /* wordmark */
+    .wm { font-family:var(--mono); font-weight:500; letter-spacing:.34em; text-transform:uppercase; color:var(--ink); white-space:nowrap; display:inline-flex; align-items:baseline; }
+    svg.ast { stroke:var(--gold); stroke-width:2.7; stroke-linecap:round; fill:none; display:inline-block; width:.78em; height:.78em; }
+    .ast-after { vertical-align:.2em; margin-left:-.18em; }
+    .ast-before { vertical-align:.2em; margin-right:.04em; margin-left:-.05em; }
+    /* favicon */
+    .fav-r { font-family:var(--mono); font-weight:500; color:var(--ink); line-height:1; position:relative; display:inline-block; }
+    .fav-ast { position:absolute; stroke:var(--gold); stroke-width:2.4; stroke-linecap:round; fill:none; }
+    .tab { display:inline-flex; align-items:center; gap:.5rem; background:#e7e1d2; border-radius:8px 8px 0 0; padding:.45rem .9rem; font-family:-apple-system,system-ui,sans-serif; font-size:.8rem; color:#444; margin-top:1rem; }
+    .favrow { display:flex; align-items:center; gap:1.6rem; justify-content:center; }
+    .note { margin-top:3rem; border-top:1px solid var(--hair); padding-top:1.3rem; color:var(--ink-dim); font-size:1rem; max-width:66ch; }
+    .note em { color:var(--ink); }
+  </style>
+</head>
+<body>
+<main class="page">
+  <p class="kicker">Rare Company · For Astan</p>
+  <h1>Asterisk: after, or before?</h1>
+  <p class="intro">The full wordmark and the compact R-mark shown both ways. Same drawn gold asterisk, same fonts — only the position moves.</p>
+
+  <h2>The full wordmark</h2>
+  <div class="row">
+    <div class="cell">
+      <span class="tag">Current · after the Y</span>
+      <div class="stage">
+        <span class="wm" style="font-size:1.5rem">RARE&nbsp;COMPANY<svg class="ast ast-after" viewBox="0 0 24 24"><path d="M12 3.5v17M4.6 7.75l14.8 8.5M19.4 7.75l-14.8 8.5"/></svg></span>
+      </div>
+    </div>
+    <div class="cell">
+      <span class="tag">Proposed · before the R</span>
+      <div class="stage">
+        <span class="wm" style="font-size:1.5rem"><svg class="ast ast-before" viewBox="0 0 24 24"><path d="M12 3.5v17M4.6 7.75l14.8 8.5M19.4 7.75l-14.8 8.5"/></svg>RARE&nbsp;COMPANY</span>
+      </div>
+    </div>
+  </div>
+
+  <h2>The favicon / compact mark</h2>
+  <div class="row">
+    <div class="cell">
+      <span class="tag">Current · R*</span>
+      <div class="stage">
+        <div class="favrow">
+          <span class="fav-r" style="font-size:5rem">R<svg class="fav-ast" viewBox="0 0 24 24" style="width:2rem;height:2rem;right:-1.5rem;top:.2rem"><path d="M12 3.5v17M4.6 7.75l14.8 8.5M19.4 7.75l-14.8 8.5"/></svg></span>
+          <span class="fav-r" style="font-size:2rem">R<svg class="fav-ast" viewBox="0 0 24 24" style="width:.85rem;height:.85rem;right:-.62rem;top:.1rem"><path d="M12 3.5v17M4.6 7.75l14.8 8.5M19.4 7.75l-14.8 8.5"/></svg></span>
+        </div>
+      </div>
+      <div class="favrow"><span class="tab"><span class="fav-r" style="font-size:1rem">R<svg class="fav-ast" viewBox="0 0 24 24" style="width:.5rem;height:.5rem;right:-.36rem;top:.02rem"><path d="M12 3.5v17M4.6 7.75l14.8 8.5M19.4 7.75l-14.8 8.5"/></svg></span>&nbsp;&nbsp;rarecompany.co.uk</span></div>
+    </div>
+    <div class="cell">
+      <span class="tag">Proposed · *R</span>
+      <div class="stage">
+        <div class="favrow">
+          <span class="fav-r" style="font-size:5rem; padding-left:1.6rem"><svg class="fav-ast" viewBox="0 0 24 24" style="width:2rem;height:2rem;left:-.4rem;top:.2rem"><path d="M12 3.5v17M4.6 7.75l14.8 8.5M19.4 7.75l-14.8 8.5"/></svg>R</span>
+          <span class="fav-r" style="font-size:2rem; padding-left:.7rem"><svg class="fav-ast" viewBox="0 0 24 24" style="width:.85rem;height:.85rem;left:-.18rem;top:.1rem"><path d="M12 3.5v17M4.6 7.75l14.8 8.5M19.4 7.75l-14.8 8.5"/></svg>R</span>
+        </div>
+      </div>
+      <div class="favrow"><span class="tab"><span class="fav-r" style="font-size:1rem; padding-left:.42rem"><svg class="fav-ast" viewBox="0 0 24 24" style="width:.5rem;height:.5rem;left:-.1rem;top:.02rem"><path d="M12 3.5v17M4.6 7.75l14.8 8.5M19.4 7.75l-14.8 8.5"/></svg>R</span>&nbsp;&nbsp;rarecompany.co.uk</span></div>
+    </div>
+  </div>
+
+  <p class="note"><em>My read:</em> after-the-Y reads more naturally as a footnote mark (the asterisk points back at the name it annotates — &ldquo;there&rsquo;s more here than we print&rdquo;), which is the whole idea. Before-the-R is more unusual and a touch more &ldquo;brand mark&rdquo; than footnote. For the favicon, both work at small size; *R has a slightly more balanced silhouette because the asterisk sits in the R&rsquo;s open top-left rather than floating off the stem. If consistency between wordmark and favicon is the priority, both should match — so it&rsquo;s really one decision, made twice.</p>
+</main>
+</body>
+</html>
