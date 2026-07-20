@@ -76,7 +76,7 @@
   var clip = chart.querySelector('.g-clip');
   var dot = chart.querySelector('.gauge-dot');
   var X0 = 24, X1 = 384, YB = 224, YT = 30, START = 2000000, END = 25000000;
-  function ease(t) { return 1 - Math.pow(1 - t, 3); }
+  function ease(t) { return t * t * t; }
   function fmt(n) { return '£' + Math.round(n).toLocaleString('en-GB'); }
   function frame(p) {
     var e = ease(p);
@@ -89,7 +89,7 @@
       (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) {
     frame(1); return;                       // static end state
   }
-  var DUR = 3600, started = false;
+  var DUR = 6200, started = false;
   function run(ts0) {
     function step(ts) {
       var p = Math.min((ts - ts0) / DUR, 1);
