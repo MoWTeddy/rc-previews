@@ -67,3 +67,46 @@
   }, { threshold: 0.55, rootMargin: '0px 0px -10% 0px' });
   figs.forEach(function (f) { io.observe(f); });
 })();
+
+/* hero valuation gauge: curve + figure count up in sync (fail-safe, reduced-motion aware) */
+(function () {
+  var fig = document.getElementById('gauge-figure');
+  var chart = document.querySelector('.gauge-chart');
+  if (!fig || !chart) return;
+  var clip = chart.querySelector('.g-clip');
+  var dot = chart.querySelector('.gauge-dot');
+  var X0 = 24, X1 = 384, YB = 224, YT = 30, START = 2000000, END = 25000000;
+  function ease(t) { return 1 - Math.pow(1 - t, 3); }
+  function fmt(n) { return '£' + Math.round(n).toLocaleString('en-GB'); }
+  function frame(p) {
+    var e = ease(p);
+    fig.textContent = fmt(START + (END - START) * e);
+    clip.setAttribute('width', String(X0 + (X1 - X0) * p));
+    dot.setAttribute('cx', String(X0 + (X1 - X0) * p));
+    dot.setAttribute('cy', String(YB - (YB - YT) * e));
+  }
+  if (!('requestAnimationFrame' in window) ||
+      (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+    frame(1); return;                       // static end state
+  }
+  var DUR = 3600, started = false;
+  function run(ts0) {
+    function step(ts) {
+      var p = Math.min((ts - ts0) / DUR, 1);
+      frame(p);
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  function begin() {
+    if (started) return; started = true;
+    frame(0);
+    requestAnimationFrame(function (ts) { run(ts); });
+  }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { begin(); io.disconnect(); } });
+    }, { threshold: 0.4 });
+    io.observe(chart);
+  } else { begin(); }
+})();
