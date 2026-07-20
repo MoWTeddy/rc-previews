@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rarecompany.co.uk/sitemap.xml
