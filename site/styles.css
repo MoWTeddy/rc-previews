@@ -551,3 +551,8 @@ table.scenarios { width: 100%; border-collapse: collapse; margin-top: 2.2rem; }
 .benefit:nth-of-type(even) .sec-grid h2 { color: var(--ink); }
 .benefit:nth-of-type(even) .sec-grid .prose p { color: var(--ink-dim); }
 .benefit:nth-of-type(even) .sec-grid .b-illo svg { stroke: var(--green); }
+
+/* faq contact line */
+.faq-contact { margin-top: 1.4rem; font-style: italic; color: var(--ink-faint); font-size: 1rem; }
+.faq-contact a { color: var(--green); text-decoration: none; border-bottom: 1px solid var(--hairline); }
+.faq-contact a:hover { color: var(--gold); border-color: var(--gold); }
