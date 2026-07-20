@@ -501,13 +501,14 @@ table.scenarios { width: 100%; border-collapse: collapse; margin-top: 2.2rem; }
 @media (max-width: 620px) { .check-grid { grid-template-columns: 1fr; } }
 
 /* home hero: text left, valuation gauge right (desktop) */
-.hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem, 4vw, 3.5rem); align-items: center; }
-.hero-grid .hero-copy h1 { max-width: 16ch; }
+.hero-grid { display: grid; grid-template-columns: 1fr 0.78fr; gap: clamp(3rem, 7vw, 7rem); align-items: center; }
+.hero-grid .hero-copy h1 { max-width: 14ch; }
+.hero-grid .hero-copy .lede { max-width: 42ch; }
 @media (max-width: 940px) {
   .hero-grid { grid-template-columns: 1fr; }
   .hero-gauge { display: none; }
 }
-.hero-gauge { margin: 0; justify-self: end; width: 100%; max-width: 560px; }
+.hero-gauge { margin: 0; justify-self: end; width: 100%; max-width: 500px; }
 .gauge-label { font-family: var(--mono); font-size: .66rem; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--green); }
 .gauge-figure { font-family: var(--serif); font-weight: 500; font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1.05; color: var(--ink); margin: .5rem 0 1.2rem; font-variant-numeric: tabular-nums; }
 .gauge-chart { display: block; width: 100%; height: auto; overflow: visible; }
