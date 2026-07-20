@@ -576,3 +576,5 @@ table.scenarios { width: 100%; border-collapse: collapse; margin-top: 2.2rem; }
 .exception summary::-webkit-details-marker { display: none; }
 .exception summary::before { content: "+"; font-size: 1.1rem; line-height: 1; }
 .exception[open] summary::before { content: "\2013"; }
+
+.conf-sign { font-style: italic; color: rgba(240,235,221,.7); }

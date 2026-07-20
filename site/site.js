@@ -25,13 +25,10 @@
     var errorLine = document.getElementById('form-error');
   var confirmation = document.getElementById('form-confirmation');
 
-  function handleRequest(data) {
-    // TODO: send `data` to your form handler, e.g.
-    //   return fetch('/api/invite-request', { method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
-    return Promise.resolve(data);
-  }
-  function val(id) { return document.getElementById(id).value.trim(); }
+  var ENDPOINT = 'https://formspree.io/f/mkodbzej';
+  var submitBtn = form.querySelector('button[type="submit"]');
+  var VALIDATION_MSG = 'Please complete your name, email and company website.';
+  var NETWORK_MSG = 'Something went wrong sending your application. Please try again, or email hello@rarecompany.co.uk.';
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -42,16 +39,21 @@
       fld.classList.toggle('invalid', !good);
       if (!good) ok = false;
     });
-    errorLine.hidden = ok;
-    if (!ok) return;
-    var motivations = Array.prototype.map.call(
-      document.querySelectorAll('input[name="motivation"]:checked'), function (c) { return c.value; });
-    handleRequest({ name: val('f-name'), email: val('f-email'), website: val('f-website'),
-      linkedin: val('f-linkedin'), founded: val('f-founded'),
-      turnover: document.getElementById('f-turnover').value,
-      value: document.getElementById('f-value').value, motivation: motivations,
-      exception: val('f-exception') })
-      .then(function () { form.hidden = true; confirmation.hidden = false; });
+    if (!ok) { errorLine.textContent = VALIDATION_MSG; errorLine.hidden = false; return; }
+    errorLine.hidden = true;
+
+    var label = submitBtn ? submitBtn.textContent : '';
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending\u2026'; }
+
+    fetch(ENDPOINT, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+      .then(function (res) {
+        if (res.ok) { form.hidden = true; confirmation.hidden = false; return; }
+        throw new Error('bad response');
+      })
+      .catch(function () {
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = label; }
+        errorLine.textContent = NETWORK_MSG; errorLine.hidden = false;
+      });
   });
 })();
 
