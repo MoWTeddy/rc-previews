@@ -72,7 +72,7 @@
 (function () {
   var fig = document.getElementById('gauge-figure');
   var chart = document.querySelector('.gauge-chart');
-  if (!fig || !chart) return;
+  if (!chart) return;
   var clip = chart.querySelector('.g-clip');
   var dot = chart.querySelector('.gauge-dot');
   var X0 = 24, X1 = 384, YB = 224, YT = 30, START = 2000000, END = 25000000;
@@ -80,7 +80,7 @@
   function fmt(n) { return '£' + Math.round(n).toLocaleString('en-GB'); }
   function frame(p) {
     var e = ease(p);
-    fig.textContent = fmt(START + (END - START) * e);
+    if (fig) fig.textContent = fmt(START + (END - START) * e);
     clip.setAttribute('width', String(X0 + (X1 - X0) * p));
     dot.setAttribute('cx', String(X0 + (X1 - X0) * p));
     dot.setAttribute('cy', String(YB - (YB - YT) * e));

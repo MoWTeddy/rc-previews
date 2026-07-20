@@ -72,7 +72,7 @@ body {
 /* ------------------------------- hero ------------------------------- */
 .hero { padding: clamp(5rem, 14vh, 9.5rem) 0 clamp(4rem, 10vh, 7rem); }
 .hero .kicker { margin-bottom: 2rem; }
-h1 { font-weight: 500; font-size: clamp(2.9rem, 7vw, 5.6rem); line-height: 1.04; letter-spacing: -.01em; text-wrap: balance; max-width: 16ch; }
+h1 { font-weight: 500; font-size: clamp(2.6rem, 5.2vw, 4.6rem); line-height: 1.05; letter-spacing: -.01em; text-wrap: balance; max-width: 16ch; }
 .hero .lede { margin-top: 2.2rem; max-width: 46ch; font-size: clamp(1.25rem, 2vw, 1.45rem); color: var(--ink-dim); }
 .hero-cta { margin-top: 3rem; display: flex; gap: 1.8rem; align-items: center; flex-wrap: wrap; }
 .btn {
