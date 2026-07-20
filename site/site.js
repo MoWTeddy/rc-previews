@@ -49,7 +49,8 @@
     handleRequest({ name: val('f-name'), email: val('f-email'), website: val('f-website'),
       linkedin: val('f-linkedin'), founded: val('f-founded'),
       turnover: document.getElementById('f-turnover').value,
-      value: document.getElementById('f-value').value, motivation: motivations })
+      value: document.getElementById('f-value').value, motivation: motivations,
+      exception: val('f-exception') })
       .then(function () { form.hidden = true; confirmation.hidden = false; });
   });
 })();

@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=18">
+  <link rel="stylesheet" href="styles.css?v=19">
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2032%2032%27%3E%3Crect%20width=%2732%27%20height=%2732%27%20fill=%27%23f7f3e9%27/%3E%3Cg%20transform=%27translate(5,27)%20scale(0.0315,-0.0315)%27%3E%3Cpath%20d=%27M195%200H84V698H345Q445%20698%20497.5%20642.0Q550%20586%20550%20488Q550%20408%20511.0%20356.0Q472%20304%20399%20292L560%200H436L288%20282H195ZM329%20372Q433%20372%20433%20467V510Q433%20605%20329%20605H195V372Z%27%20fill=%27%2316140e%27/%3E%3C/g%3E%3Cg%20stroke=%27%237d5f28%27%20stroke-width=%271.7%27%20stroke-linecap=%27round%27%20fill=%27none%27%3E%3Cpath%20d=%27M25.8%202.5v6.4M23.03%204.1l5.54%203.2M28.57%204.1l-5.54%203.2%27/%3E%3C/g%3E%3C/svg%3E">
 </head>
 <body>
@@ -153,7 +153,6 @@
               <label for="f-turnover">Average monthly turnover</label>
               <select id="f-turnover" name="turnover">
                 <option value="" selected disabled>Select one</option>
-                <option>Under £50,000</option>
                 <option>£50,000 &ndash; £150,000</option>
                 <option>£150,000 &ndash; £400,000</option>
                 <option>Over £400,000</option>
@@ -164,7 +163,6 @@
             <label for="f-value">What would you guess the business is worth today?</label>
             <select id="f-value" name="value">
               <option value="" selected disabled>Select one</option>
-              <option>Under £1 million</option>
               <option>£1 &ndash; £2 million</option>
               <option>£2 &ndash; £5 million</option>
               <option>£5 &ndash; £10 million</option>
@@ -172,6 +170,13 @@
               <option>Honestly, not sure &ndash; that's part of why I'm here</option>
             </select>
           </div>
+          <details class="exception">
+            <summary>Not quite there yet? Request a rare exception</summary>
+            <div class="field" style="margin-top:1.2rem">
+              <label for="f-exception">Why you'd be rare company anyway</label>
+              <textarea id="f-exception" name="exception" rows="3" placeholder="A sentence or two. We keep a small number of seats for owners who don't fit the thresholds but plainly belong."></textarea>
+            </div>
+          </details>
           <fieldset class="field check-field">
             <legend>What's brought you here? Tick all that apply.</legend>
             <div class="check-grid">
@@ -223,6 +228,6 @@
     </div>
   </footer>
 
-  <script src="site.js?v=18"></script>
+  <script src="site.js?v=19"></script>
 </body>
 </html>
