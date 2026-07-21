@@ -114,7 +114,7 @@
   if (!forms.length) return;
   // REPLACE with the MailerLite embedded-form action URL:
   //   https://assets.mailerlite.com/jsonp/<ACCOUNT_ID>/forms/<FORM_ID>/subscribe
-  var MAILERLITE_ENDPOINT = '';
+  var MAILERLITE_ENDPOINT = 'https://assets.mailerlite.com/jsonp/2522302/forms/193589669310497871/subscribe';
   var reEmail = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
   forms.forEach(function (form) {
     var input = form.querySelector('input[type="email"]');
@@ -140,9 +140,11 @@
       if (hp && hp.value) { showDone(); return; }            // honeypot: silently drop
       if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
       if (!MAILERLITE_ENDPOINT) { showDone(); return; }       // demo until wired
-      var fd = new FormData();
-      fd.append('fields[email]', email);
-      fetch(MAILERLITE_ENDPOINT, { method: 'POST', body: fd, mode: 'no-cors' })
+      var body = new URLSearchParams();
+      body.append('fields[email]', email);
+      body.append('ml-submit', '1');
+      body.append('anticsrf', 'true');
+      fetch(MAILERLITE_ENDPOINT, { method: 'POST', body: body, mode: 'no-cors' })
         .then(function () { showDone(); })
         .catch(function () { showDone(); });                  // opaque no-cors; MailerLite's confirm email is the real signal
     });
