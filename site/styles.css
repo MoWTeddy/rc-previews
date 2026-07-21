@@ -578,3 +578,25 @@ table.scenarios { width: 100%; border-collapse: collapse; margin-top: 2.2rem; }
 .exception[open] summary::before { content: "\2013"; }
 
 .conf-sign { font-style: italic; color: rgba(240,235,221,.7); }
+
+/* newsletter signup (soft secondary CTA) */
+.signup { max-width: 30rem; }
+.signup label { display: block; font-family: var(--mono); font-size: .68rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--green); margin-bottom: .7rem; }
+.signup-row { display: flex; gap: .6rem; }
+.signup-row input { flex: 1; min-width: 0; font-family: var(--serif); font-size: 1.02rem; color: var(--ink); background: rgba(255,255,255,.4); border: 1px solid var(--hairline); border-radius: var(--radius); padding: .75rem .9rem; transition: border-color .3s var(--ease); }
+.signup-row input:focus { outline: none; border-color: var(--green); }
+.signup-row input.invalid { border-color: #b25b3a; }
+.signup-row button { flex: none; font-family: var(--mono); font-size: .72rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--green); background: transparent; border: 1px solid var(--green); border-radius: var(--radius); padding: 0 1.3rem; cursor: pointer; transition: background .3s var(--ease), color .3s var(--ease); }
+.signup-row button:hover, .signup-row button:focus-visible { background: var(--green); color: var(--ivory); outline: none; }
+.signup-fine { margin-top: .8rem; font-style: italic; font-size: .92rem; color: var(--ink-faint); }
+.signup-error { margin-top: .7rem; font-family: var(--mono); font-size: .72rem; color: #b25b3a; }
+.signup-done { margin-top: .7rem; font-style: italic; font-size: 1rem; color: var(--green); }
+.signup-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+/* home band: understated (paper, not green) */
+.signup-band .signup-lead { color: var(--ink-dim); max-width: 54ch; margin-bottom: 1.8rem; font-size: 1.12rem; }
+
+/* footer signup */
+.signup-foot { max-width: 26rem; margin-bottom: 2.4rem; padding-bottom: 2rem; border-bottom: 1px solid var(--hairline); }
+footer .shell { display: block; }
+@media (max-width: 560px) { .signup-row { flex-direction: column; } .signup-row button { padding: .7rem 1.3rem; } }

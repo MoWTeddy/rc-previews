@@ -107,3 +107,44 @@
   }
   begin();   // hero is always at the top: run on load
 })();
+
+/* newsletter signup -> MailerLite (fail-safe, honeypot, optimistic on no-cors) */
+(function () {
+  var forms = document.querySelectorAll('form.signup');
+  if (!forms.length) return;
+  // REPLACE with the MailerLite embedded-form action URL:
+  //   https://assets.mailerlite.com/jsonp/<ACCOUNT_ID>/forms/<FORM_ID>/subscribe
+  var MAILERLITE_ENDPOINT = '';
+  var reEmail = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+  forms.forEach(function (form) {
+    var input = form.querySelector('input[type="email"]');
+    var hp = form.querySelector('.signup-hp');
+    var err = form.querySelector('.signup-error');
+    var done = form.querySelector('.signup-done');
+    var btn = form.querySelector('button[type="submit"]');
+    var row = form.querySelector('.signup-row');
+    var fine = form.querySelector('.signup-fine');
+    function showDone() {
+      if (row) row.hidden = true;
+      if (fine) fine.hidden = true;
+      if (err) err.hidden = true;
+      if (done) done.hidden = false;
+    }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = input.value.trim();
+      var ok = reEmail.test(email);
+      input.classList.toggle('invalid', !ok);
+      if (err) err.hidden = ok;
+      if (!ok) return;
+      if (hp && hp.value) { showDone(); return; }            // honeypot: silently drop
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+      if (!MAILERLITE_ENDPOINT) { showDone(); return; }       // demo until wired
+      var fd = new FormData();
+      fd.append('fields[email]', email);
+      fetch(MAILERLITE_ENDPOINT, { method: 'POST', body: fd, mode: 'no-cors' })
+        .then(function () { showDone(); })
+        .catch(function () { showDone(); });                  // opaque no-cors; MailerLite's confirm email is the real signal
+    });
+  });
+})();
