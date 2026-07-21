@@ -600,3 +600,6 @@ table.scenarios { width: 100%; border-collapse: collapse; margin-top: 2.2rem; }
 .signup-foot { max-width: 26rem; margin-bottom: 2.4rem; padding-bottom: 2rem; border-bottom: 1px solid var(--hairline); }
 footer .shell { display: block; }
 @media (max-width: 560px) { .signup-row { flex-direction: column; } .signup-row button { padding: .7rem 1.3rem; } }
+
+/* ensure hidden state wins over display:flex when success shows */
+.signup-row[hidden] { display: none; }
