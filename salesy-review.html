@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Rare Company — Copy review: more direct, still classy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16140e; --ink-dim:rgba(22,20,14,.72); --ink-faint:rgba(22,20,14,.5);
+    --green:#1a4230; --green-soft:#eef1ea; --gold:#7d5f28; --gold-d:#c8a96a;
+    --ivory:#f0ebdd; --paper:#f7f3e9; --hair:rgba(22,20,14,.14);
+    --serif:"Newsreader",Georgia,serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+    --red:#8a3b2e;
+  }
+  *{margin:0;box-sizing:border-box}
+  body{font-family:var(--serif); color:var(--ink); background:var(--paper); line-height:1.6;
+    background-image:repeating-linear-gradient(0deg,rgba(22,20,14,.02) 0 1px,transparent 1px 5px);}
+  .wrap{max-width:820px; margin:0 auto; padding:clamp(1.5rem,5vw,3.5rem) clamp(1.1rem,4vw,2.5rem) 6rem;}
+  .kicker{font-family:var(--mono); font-size:.7rem; font-weight:500; letter-spacing:.26em; text-transform:uppercase; color:var(--green);}
+  h1{font-weight:500; font-size:clamp(2rem,5vw,2.9rem); line-height:1.1; margin:.6rem 0 0;}
+  .sub{color:var(--ink-dim); font-size:1.12rem; margin-top:1rem; max-width:62ch;}
+  h2{font-weight:500; font-size:clamp(1.4rem,3vw,1.8rem); margin:0;}
+  .rule{border:0; border-top:1px solid var(--hair); margin:3.2rem 0;}
+  .sec-head{display:flex; align-items:baseline; gap:.9rem; margin-bottom:1.6rem; flex-wrap:wrap;}
+  .sec-head .n{font-family:var(--mono); font-size:.72rem; letter-spacing:.2em; color:var(--gold); text-transform:uppercase;}
+
+  /* intro panel */
+  .panel{background:var(--green); color:var(--ivory); border-radius:12px; padding:clamp(1.4rem,3vw,2.2rem); margin-top:2rem;}
+  .panel h3{font-weight:500; font-size:1.15rem; margin:0 0 .2rem;}
+  .panel .kicker{color:var(--gold-d);}
+  .rules{list-style:none; padding:0; margin:1.4rem 0 0; display:grid; gap:1rem;}
+  .rules li{padding-left:2.2rem; position:relative; color:rgba(240,235,221,.9);}
+  .rules li b{color:#fff;}
+  .rules li .rn{position:absolute; left:0; top:0; font-family:var(--mono); font-size:.8rem; color:var(--gold-d);}
+  .guard{margin-top:1.6rem; padding-top:1.3rem; border-top:1px solid rgba(240,235,221,.2); font-size:.95rem; color:rgba(240,235,221,.82);}
+  .guard b{color:#fff;}
+
+  /* suggestion card */
+  .sug{border:1px solid var(--hair); border-radius:12px; background:rgba(255,255,255,.45); padding:1.3rem 1.3rem 1.15rem; margin-bottom:1.5rem;}
+  .sug-top{display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; margin-bottom:1rem; flex-wrap:wrap;}
+  .loc{font-family:var(--mono); font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint); padding-top:.35rem;}
+  .ba{display:grid; gap:.7rem;}
+  .box{border-radius:9px; padding:.85rem 1rem; font-size:1.02rem;}
+  .box .tag{display:block; font-family:var(--mono); font-size:.62rem; letter-spacing:.16em; text-transform:uppercase; margin-bottom:.35rem;}
+  .before{background:rgba(22,20,14,.045);}
+  .before .tag{color:var(--ink-faint);}
+  .before .t{color:var(--ink-dim);}
+  .after{background:var(--green-soft); border:1px solid rgba(26,66,48,.18);}
+  .after .tag{color:var(--green);}
+  .after .t{color:var(--ink);}
+  .after.alt{background:rgba(125,95,40,.08); border-color:rgba(125,95,40,.22);}
+  .after.alt .tag{color:var(--gold);}
+  .why{font-size:.98rem; color:var(--ink-dim); margin-top:1rem;}
+  .why b{color:var(--ink);}
+
+  /* decision buttons */
+  .decide{display:flex; gap:.4rem; flex-shrink:0;}
+  .decide button{font-family:var(--mono); font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; cursor:pointer;
+    border:1px solid var(--hair); background:transparent; color:var(--ink-faint); border-radius:20px; padding:.4rem .7rem; transition:.15s;}
+  .decide button:hover{border-color:var(--ink-dim); color:var(--ink);}
+  .decide button.on[data-v="yes"]{background:var(--green); border-color:var(--green); color:#fff;}
+  .decide button.on[data-v="tweak"]{background:var(--gold); border-color:var(--gold); color:#fff;}
+  .decide button.on[data-v="no"]{background:var(--red); border-color:var(--red); color:#fff;}
+
+  /* words to cut */
+  .cut-list{list-style:none; padding:0; margin:0; display:grid; gap:.85rem;}
+  .cut-list li{display:grid; grid-template-columns:1fr auto 1fr; gap:.8rem; align-items:center; padding:.7rem .9rem; border:1px solid var(--hair); border-radius:9px; background:rgba(255,255,255,.4); font-size:.98rem;}
+  .cut-list .from{color:var(--ink-dim);}
+  .cut-list .from s{color:var(--red); text-decoration-thickness:1px;}
+  .cut-list .arr{font-family:var(--mono); color:var(--gold); font-size:.85rem;}
+  .cut-list .to b{color:var(--green);}
+  @media(max-width:560px){ .cut-list li{grid-template-columns:1fr; gap:.3rem;} .cut-list .arr{display:none;} }
+
+  /* keep list */
+  .keep{display:grid; gap:.6rem; margin-top:.4rem;}
+  .keep div{padding-left:1.5rem; position:relative; color:var(--ink-dim); font-size:1rem;}
+  .keep div::before{content:"✓"; position:absolute; left:0; color:var(--green); font-family:var(--mono);}
+  .keep b{color:var(--ink);}
+
+  /* sticky tally */
+  .tally{position:fixed; right:1rem; bottom:1rem; background:var(--ink); color:var(--ivory); border-radius:30px;
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.06em; padding:.6rem 1rem; display:flex; gap:.9rem; box-shadow:0 6px 24px rgba(0,0,0,.2); z-index:50;}
+  .tally span{white-space:nowrap;}
+  .tally .y{color:var(--gold-d);} .tally .t{color:#e0b877;} .tally .n{color:#d99;}
+  .tally button{background:none;border:0;color:rgba(240,235,221,.6);font-family:var(--mono);font-size:.7rem;cursor:pointer;padding:0;margin-left:.2rem;}
+  .tally button:hover{color:#fff;}
+
+  /* per-line notes */
+  .note-field{margin-top:1rem;}
+  .note-field label{display:block; font-family:var(--mono); font-size:.6rem; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:.35rem;}
+  .note-field textarea{width:100%; font-family:var(--serif); font-size:.98rem; color:var(--ink); background:rgba(255,255,255,.55);
+    border:1px solid var(--hair); border-radius:8px; padding:.6rem .75rem; resize:vertical; min-height:2.4rem; line-height:1.5;}
+  .note-field textarea:focus{outline:2px solid var(--gold-d); outline-offset:1px; border-color:transparent;}
+  .note-field textarea::placeholder{color:var(--ink-faint); font-style:italic;}
+  .note-field.has textarea{background:rgba(125,95,40,.06); border-color:rgba(125,95,40,.28);}
+
+  /* export overlay */
+  .overlay{position:fixed; inset:0; background:rgba(22,20,14,.55); display:none; align-items:center; justify-content:center; padding:1.2rem; z-index:100;}
+  .overlay.open{display:flex;}
+  .modal{background:var(--paper); border-radius:12px; max-width:640px; width:100%; max-height:85vh; display:flex; flex-direction:column; padding:1.4rem; box-shadow:0 20px 60px rgba(0,0,0,.35);}
+  .modal h3{font-weight:500; font-size:1.25rem; margin:0 0 .3rem;}
+  .modal p{color:var(--ink-dim); font-size:.95rem; margin:0 0 1rem;}
+  .modal textarea{flex:1; min-height:220px; font-family:var(--mono); font-size:.82rem; line-height:1.55; color:var(--ink);
+    background:#fff; border:1px solid var(--hair); border-radius:8px; padding:.9rem; resize:none;}
+  .modal-foot{display:flex; gap:.6rem; margin-top:1rem; justify-content:flex-end;}
+  .modal-foot button{font-family:var(--mono); font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; border-radius:22px; padding:.6rem 1.1rem; border:1px solid var(--hair); background:transparent; color:var(--ink);}
+  .modal-foot .primary{background:var(--green); border-color:var(--green); color:#fff;}
+
+  .foot{margin-top:3.5rem; padding-top:1.6rem; border-top:1px solid var(--hair); color:var(--ink-faint); font-size:.92rem;}
+  .wm{font-family:var(--mono); font-weight:500; letter-spacing:.2em; text-transform:uppercase;}
+  .wm .a{color:var(--gold);}
+  .note-inline{font-size:.95rem;color:var(--ink-dim);margin:.4rem 0 1.4rem;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="kicker">Rare Company · Internal · for Eddie &amp; Astan</p>
+  <h1>Selling it a little harder — without sounding like we're selling.</h1>
+  <p class="sub">The site reads beautifully. But it's written modestly, and modesty is quietly costing us. Below are concrete edits to make it more direct and benefit-led, while keeping the restraint and class that make it credible. Go through them together and hit <b>Yes / Tweak / No</b> on each — your choices save in this browser. Then send Eddie the Yeses and we'll make them live.</p>
+
+  <div class="panel">
+    <p class="kicker">The pattern we're fixing</p>
+    <h3>The modesty tax</h3>
+    <p style="color:rgba(240,235,221,.9); margin-top:.5rem;">Three habits show up on nearly every page. None are wrong, exactly — they're just leaving money in the room.</p>
+    <ul class="rules">
+      <li><span class="rn">01</span><b>Headings label instead of sell.</b> "What membership includes." "Who it's for." These describe a section; they don't give the reader a reason to want it.</li>
+      <li><span class="rn">02</span><b>We pre-apologise for our best numbers.</b> "Even a modest result…", "quietly guaranteed", "a small number of…". We shrink the thing right as we show it.</li>
+      <li><span class="rn">03</span><b>We ask permission instead of inviting action.</b> "If this sounds like your room, ask us for a seat." Confident brands assume the reader belongs.</li>
+    </ul>
+    <p class="guard"><b>The line we won't cross.</b> "More salesy" does <i>not</i> mean guru-y. No "unlock", "transform", "10x", no fake scarcity, no exclamation marks, no hype. The move is simply: <b>lead with the outcome, cut one hedge per sentence, and let the numbers stand up straight.</b> Confident, not loud.</p>
+  </div>
+
+  <hr class="rule">
+
+  <!-- ============ HOME ============ -->
+  <div class="sec-head"><span class="n">Page 01</span><h2>Home</h2></div>
+
+  <article class="sug" id="home-h1">
+    <div class="sug-top"><span class="loc">Home · Hero headline (optional — you just reworked the lede)</span>
+      <div class="decide" data-id="home-h1"><button data-v="yes">Yes</button><button data-v="tweak">Tweak</button><button data-v="no">No</button></div></div>
+    <div class="ba">
+      <div class="box before"><span class="tag">Now</span><span class="t">Life-changing exits are built in rare company.</span></div>
+      <div class="box after"><span class="tag">Bolder A</span><span class="t">Sell for millions more — in rare company.</span></div>
+      <div class="box after alt"><span class="tag">Bolder B</span><span class="t">Most owners sell for less than they should. Ours don't.</span></div>
+    </div>
+    <p class="why"><b>Why:</b> the current line is elegant but abstract — "life-changing" asks the reader to fill in the value. A benefit-led headline says the value out loud. Marked optional because the current one is genuinely good; only swap if you want the top of the page to hit harder.</p>
+  </article>
+
+  <article class="sug" id="home-includes">
+    <div class="sug-top"><span class="loc">Home · "Membership" section heading</span>
+      <div class="decide" data-id="home-includes"><button data-v="yes">Yes</button><button data-v="tweak">Tweak</button><button data-v="no">No</button></div></div>
+    <div class="ba">
+      <div class="box before"><span class="tag">Now</span><span class="t">What membership includes.</span></div>
+      <div class="box after"><span class="tag">Suggested</span><span class="t">Six ways we grow what you sell for.</span></div>
+    </div>
+    <p class="why"><b>Why:</b> a contents label becomes a benefit promise. Same six things underneath — but now the heading tells the reader why to keep reading.</p>
+  </article>
+
+  <article class="sug" id="home-who">
+    <div class="sug-top"><span class="loc">Home · "Who it's for" heading</span>
+      <div class="decide" data-id="home-who"><button data-v="yes">Yes</button><button data-v="tweak">Tweak</button><button data-v="no">No</button></div></div>
+    <div class="ba">
+      <div class="box before"><span class="tag">Now</span><span class="t">Who it's for.</span></div>
+      <div class="box after"><span class="tag">Suggested</span><span class="t">Is this you?</span></div>
+    </div>
+    <p class="why"><b>Why:</b> turns a spec sheet into a question the reader answers in their own head — and the ones who say "yes, that's me" are exactly who we want applying.</p>
+  </article>
+
+  <!-- ============ MEMBERSHIP ============ -->
+  <hr class="rule">
+  <div class="sec-head"><span class="n">Page 02</span><h2>Membership</h2></div>
+
+  <article class="sug" id="mem-h1">
+    <div class="sug-top"><span class="loc">Membership · Page heading (H1)</span>
+      <div class="decide" data-id="mem-h1"><button data-v="yes">Yes</button><button data-v="tweak">Tweak</button><button data-v="no">No</button></div></div>
+    <div class="ba">
+      <div class="box before"><span class="tag">Now</span><span class="t">Explore membership.</span></div>
+      <div class="box after"><span class="tag">Suggested</span><span class="t">What you get for £1,000 a month.</span></div>
+    </div>
+    <p class="why"><b>Why:</b> "Explore" is a navigation word. Naming the price up front, right before six pages of value, makes everything below read as a bargain rather than a cost.</p>
+  </article>
+
+  <article class="sug" id="mem-close">
+    <div class="sug-top"><span class="loc">Membership · Closing CTA + its kicker</span>
+      <div class="decide" data-id="mem-close"><button data-v="yes">Yes</button><button data-v="tweak">Tweak</button><button data-v="no">No</button></div></div>
+    <div class="ba">
+      <div class="box before"><span class="tag">Now</span><span class="t">The ask — "If this sounds like your room, ask us for a seat."</span></div>
+      <div class="box after"><span class="tag">Suggested</span><span class="t">Apply — "If that's the room you've been missing, take your seat."</span></div>
+    </div>
+    <p class="why"><b>Why:</b> "ask us for a seat" makes the reader a supplicant. "Take your seat" assumes they belong — the confident version, and it keeps every word of the exclusivity.</p>
+  </article>
+
+  <!-- ============ PRICING ============ -->
+  <hr class="rule">
+  <div class="sec-head"><span class="n">Page 03</span><h2>Pricing</h2></div>
+
+  <article class="sug" id="pri-return">
+    <div class="sug-top"><span class="loc">Pricing · "The return" heading</span>
+      <div class="decide" data-id="pri-return"><button data-v="yes">Yes</button><button data-v="tweak">Tweak</button><button data-v="no">No</button></div></div>
+    <div class="ba">
+      <div class="box before"><span class="tag">Now</span><span class="t">What even a modest result is worth.</span></div>
+      <div class="box after"><span class="tag">Suggested</span><span class="t">What preparation is worth at exit.</span></div>
+      <div class="box after alt"><span class="tag">Bolder</span><span class="t">The £1.25m table.</span></div>
+    </div>
+    <p class="why"><b>Why:</b> "even a modest result" apologises for the number before the reader sees it. The table already shows £500k–£5m against a £12k fee — let it land at full height. (Same fix applies to "even the modest first row" in the paragraph below it.)</p>
+  </article>
+
+  <!-- ============ APPLY ============ -->
+  <hr class="rule">
+  <div class="sec-head"><span class="n">Page 04</span><h2>Apply</h2></div>
+
+  <article class="sug" id="apply-process">
+    <div class="sug-top"><span class="loc">Apply · "The process" heading</span>
+      <div class="decide" data-id="apply-process"><button data-v="yes">Yes</button><button data-v="tweak">Tweak</button><button data-v="no">No</button></div></div>
+    <div class="ba">
+      <div class="box before"><span class="tag">Now</span><span class="t">How consideration works.</span></div>
+      <div class="box after"><span class="tag">Suggested</span><span class="t">How applying works.</span></div>
+    </div>
+    <p class="why"><b>Why:</b> "consideration" keeps the reader at arm's length. "Applying" names the action we actually want them to take. Small, but it's the page where hesitation costs most.</p>
+  </article>
+
+  <!-- ============ WORDS TO CUT ============ -->
+  <hr class="rule">
+  <div class="sec-head"><span class="n">Quick wins</span><h2>Words &amp; phrases to cut</h2></div>
+  <p class="note-inline">These softeners repeat across every page. Each one hedges a claim we should just make. One decision covers the lot.</p>
+  <article class="sug" id="cut-words" style="padding-bottom:1.3rem;">
+    <div class="sug-top"><span class="loc">Site-wide</span>
+      <div class="decide" data-id="cut-words"><button data-v="yes">Yes, cut them</button><button data-v="tweak">Some</button><button data-v="no">Keep</button></div></div>
+    <ul class="cut-list">
+      <li><span class="from"><s>"genuinely help you"</s> <em>(appears ~5×)</em></span><span class="arr">→</span><span class="to"><b>"help you."</b> Dropping "genuinely" stops us sounding unsure we can.</span></li>
+      <li><span class="from"><s>"quietly guaranteed"</s></span><span class="arr">→</span><span class="to"><b>"Guaranteed."</b> Our single best sales asset shouldn't whisper. (See bigger bet below.)</span></li>
+      <li><span class="from"><s>"a small number of exited founders"</s></span><span class="arr">→</span><span class="to"><b>"exited founders."</b> Smallness is implied; saying it shrinks the value.</span></li>
+      <li><span class="from"><s>"we'd argue a better one"</s></span><span class="arr">→</span><span class="to"><b>"a better one."</b> Don't hedge the claim — make it.</span></li>
+      <li><span class="from"><s>"even a modest result"</s></span><span class="arr">→</span><span class="to"><b>cut "even."</b> Never pre-apologise for a number.</span></li>
+      <li><span class="from"><s>"if the room can help"</s></span><span class="arr">→</span><span class="to"><b>"when we can help."</b> Assume competence.</span></li>
+    </ul>
+  </article>
+
+  <!-- ============ BIGGER BETS ============ -->
+  <hr class="rule">
+  <div class="sec-head"><span class="n">Bigger bets</span><h2>Three worth a proper conversation</h2></div>
+  <p class="note-inline">These are structural, not one-line swaps — more upside, but more to build. Flag interest and we'll mock them up properly.</p>
+
+  <article class="sug" id="bet-statbar">
+    <div class="sug-top"><span class="loc">Home · new "proof strip" under the hero</span>
+      <div class="decide" data-id="bet-statbar"><button data-v="yes">Interested</button><button data-v="tweak">Maybe</button><button data-v="no">No</button></div></div>
+    <div class="ba">
+      <div class="box after"><span class="tag">New element</span><span class="t">A single scannable line of facts we already own:<br><b>£12k a year, not £150k+ &nbsp;·&nbsp; every £1 of profit ≈ £5 at sale &nbsp;·&nbsp; 90 days, money back</b></span></div>
+    </div>
+    <p class="why"><b>Why:</b> the strongest facts are currently spread across three pages. A three-stat strip high on the home page does the selling in two seconds, for skimmers who never scroll to Pricing. Factual, not hypey — it's your own numbers, just louder.</p>
+  </article>
+
+  <article class="sug" id="bet-subtitles">
+    <div class="sug-top"><span class="loc">Home + Membership · plain-English subtitles on the six names</span>
+      <div class="decide" data-id="bet-subtitles"><button data-v="yes">Interested</button><button data-v="tweak">Maybe</button><button data-v="no">No</button></div></div>
+    <div class="ba">
+      <div class="box before"><span class="tag">Now — the reader has to decode</span><span class="t">Your Circle · The Panel · The Black Book · The Minutes · Rare Experiences · Your Rare Value</span></div>
+      <div class="box after"><span class="tag">Suggested — name + instant benefit</span><span class="t"><b>The Panel</b> — any big decision, answered within a day by owners who've made it.<br><b>The Black Book</b> — the advisers worth hiring, rated by members who paid them.<br><b>Your Rare Value</b> — your sale price, tracked and climbing.</span></div>
+    </div>
+    <p class="why"><b>Why:</b> the names are memorable and worth keeping — but a first-time visitor has to work to see the value in "The Black Book". A one-line benefit under each name lets the value land instantly, then the name gives it character. Best of both.</p>
+  </article>
+
+  <article class="sug" id="bet-guarantee">
+    <div class="sug-top"><span class="loc">Home + Membership + Pricing · the guarantee</span>
+      <div class="decide" data-id="bet-guarantee"><button data-v="yes">Interested</button><button data-v="tweak">Maybe</button><button data-v="no">No</button></div></div>
+    <div class="ba">
+      <div class="box before"><span class="tag">Now</span><span class="t">Quietly guaranteed. Twice.</span></div>
+      <div class="box after"><span class="tag">Suggested</span><span class="t">Guaranteed. Twice. In writing.</span></div>
+    </div>
+    <p class="why"><b>Why:</b> risk-reversal is the single biggest lever on a high-consideration purchase like this — and ours is genuinely strong (90 days money-back <i>and</i> an annual value check). Labelling it "quietly" is the purest example of the modesty tax. Keep both clauses exactly; just stop apologising for how good the offer is. This is the one place to raise your voice.</p>
+  </article>
+
+  <!-- ============ LEAVE ALONE ============ -->
+  <hr class="rule">
+  <div class="sec-head"><span class="n">For balance</span><h2>What's already pulling its weight</h2></div>
+  <p class="note-inline">So you know this isn't a redline of everything — plenty is already doing exactly the right job. Leave these be:</p>
+  <div class="keep">
+    <div><b>"Selling is a game the other side plays every day."</b> — the home Position heading. Direct, confident, true. This is the target tone for everything else.</div>
+    <div><b>"£1,000 a month. Nothing else."</b> — pricing heading. Perfect.</div>
+    <div><b>The FAQ answer on "Is this exit advisory?"</b> — this is the model: it attacks the alternative and states the case plainly, without a single hedge. Copy its energy elsewhere.</div>
+    <div><b>The founders' letter</b> — its modesty is <i>right</i> here; personal credibility is earned by restraint. Don't touch it.</div>
+    <div><b>"One good decision pays for the decade."</b> and <b>"Better company. Bigger exit."</b> — closing lines that already do the job.</div>
+  </div>
+
+  <div class="foot">
+    <p><span class="wm">Rare Company<span class="a">✳</span></span> — copy review, for discussion. Nothing here is live. Tick your Yeses, and Eddie sends them over to make the changes.</p>
+  </div>
+
+</div>
+
+<div class="tally" id="tally">
+  <span class="y">Yes <b id="c-yes">0</b></span>
+  <span class="t">Tweak <b id="c-tweak">0</b></span>
+  <span class="n">No <b id="c-no">0</b></span>
+  <button id="export">export</button>
+  <button id="reset">reset</button>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <h3>Your feedback</h3>
+    <p>Everything you've marked and noted, in one block. Hit <b>Copy</b>, then paste it back to Eddie (or straight into the chat with Claude) and we'll action it.</p>
+    <textarea id="export-text" readonly></textarea>
+    <div class="modal-foot">
+      <button id="close-overlay">Close</button>
+      <button class="primary" id="copy-text">Copy</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  var KEY = 'rc-salesy-review-v1';       // decisions {id:'yes'|'tweak'|'no'}
+  var NKEY = 'rc-salesy-review-notes-v1'; // notes {id:'text'}
+  var state = {}, notes = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e){ state = {}; }
+  try { notes = JSON.parse(localStorage.getItem(NKEY) || '{}'); } catch(e){ notes = {}; }
+
+  var LABELS = {}; // id -> location label, in document order
+  var ORDER = [];
+
+  // Inject a per-line note box into each suggestion, capture its label
+  document.querySelectorAll('.sug').forEach(function(card){
+    var id = card.id;
+    if(!id) return;
+    ORDER.push(id);
+    var locEl = card.querySelector('.loc');
+    LABELS[id] = locEl ? locEl.textContent.trim() : id;
+
+    var wrap = document.createElement('div');
+    wrap.className = 'note-field';
+    var lab = document.createElement('label');
+    lab.textContent = 'Your notes on this one';
+    var ta = document.createElement('textarea');
+    ta.setAttribute('rows','1');
+    ta.placeholder = 'Optional — e.g. "prefer Bolder B", "keep as-is", or a rewrite of your own…';
+    ta.value = notes[id] || '';
+    if(notes[id]) wrap.classList.add('has');
+    ta.addEventListener('input', function(){
+      if(ta.value.trim()){ notes[id] = ta.value; wrap.classList.add('has'); }
+      else { delete notes[id]; wrap.classList.remove('has'); }
+      localStorage.setItem(NKEY, JSON.stringify(notes));
+    });
+    wrap.appendChild(lab); wrap.appendChild(ta);
+    card.appendChild(wrap);
+  });
+
+  function paint(){
+    document.querySelectorAll('.decide').forEach(function(group){
+      var id = group.getAttribute('data-id');
+      group.querySelectorAll('button').forEach(function(btn){
+        btn.classList.toggle('on', state[id] === btn.getAttribute('data-v'));
+      });
+    });
+    var c = {yes:0, tweak:0, no:0};
+    Object.keys(state).forEach(function(k){ if(c[state[k]] !== undefined) c[state[k]]++; });
+    document.getElementById('c-yes').textContent = c.yes;
+    document.getElementById('c-tweak').textContent = c.tweak;
+    document.getElementById('c-no').textContent = c.no;
+  }
+
+  document.querySelectorAll('.decide').forEach(function(group){
+    var id = group.getAttribute('data-id');
+    group.querySelectorAll('button').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var v = btn.getAttribute('data-v');
+        if(state[id] === v){ delete state[id]; } else { state[id] = v; }
+        localStorage.setItem(KEY, JSON.stringify(state));
+        paint();
+      });
+    });
+  });
+
+  function buildExport(){
+    var lines = ['RARE COMPANY — COPY REVIEW FEEDBACK', '====================================', ''];
+    var any = false;
+    ORDER.forEach(function(id){
+      var d = state[id], n = notes[id];
+      if(!d && !n) return;
+      any = true;
+      var verdict = d ? d.toUpperCase() : '(no verdict)';
+      lines.push('• ' + LABELS[id]);
+      lines.push('  ' + verdict + (n ? ' — ' + n.replace(/\s+/g,' ').trim() : ''));
+      lines.push('');
+    });
+    if(!any) lines.push('(Nothing marked yet — click Yes / Tweak / No and add notes, then export.)');
+    return lines.join('\n');
+  }
+
+  var overlay = document.getElementById('overlay');
+  document.getElementById('export').addEventListener('click', function(){
+    document.getElementById('export-text').value = buildExport();
+    overlay.classList.add('open');
+  });
+  document.getElementById('close-overlay').addEventListener('click', function(){ overlay.classList.remove('open'); });
+  overlay.addEventListener('click', function(e){ if(e.target === overlay) overlay.classList.remove('open'); });
+  document.getElementById('copy-text').addEventListener('click', function(){
+    var ta = document.getElementById('export-text');
+    ta.select();
+    var btn = document.getElementById('copy-text');
+    try {
+      if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(ta.value); }
+      else { document.execCommand('copy'); }
+      btn.textContent = 'Copied ✓';
+    } catch(e){ document.execCommand('copy'); btn.textContent = 'Copied ✓'; }
+    setTimeout(function(){ btn.textContent = 'Copy'; }, 1600);
+  });
+
+  document.getElementById('reset').addEventListener('click', function(){
+    if(!confirm('Clear all your verdicts and notes?')) return;
+    state = {}; notes = {};
+    localStorage.removeItem(KEY); localStorage.removeItem(NKEY);
+    document.querySelectorAll('.note-field textarea').forEach(function(t){ t.value=''; t.parentNode.classList.remove('has'); });
+    paint();
+  });
+
+  paint();
+</script>
+</body>
+</html>
