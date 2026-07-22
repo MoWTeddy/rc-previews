@@ -370,9 +370,10 @@ footer { border-top: 1px solid var(--hairline); padding: 1.8rem 0 2.4rem; }
 @media (prefers-reduced-motion: no-preference) {
   .circles-fig.drawn .ring { transform-box: fill-box; transform-origin: center; animation: rc-ring .9s var(--ease) backwards; }
   .circles-fig.drawn .ring:nth-of-type(1) { animation-delay: .8s; }
-  .circles-fig.drawn .ring:nth-of-type(2) { animation-delay: .55s; }
-  .circles-fig.drawn .ring:nth-of-type(3) { animation-delay: .3s; }
-  .circles-fig.drawn .ring:nth-of-type(4) { animation-delay: 0s; }
+  .circles-fig.drawn .ring:nth-of-type(2) { animation-delay: .6s; }
+  .circles-fig.drawn .ring:nth-of-type(3) { animation-delay: .4s; }
+  .circles-fig.drawn .ring:nth-of-type(4) { animation-delay: .2s; }
+  .circles-fig.drawn .ring:nth-of-type(5) { animation-delay: 0s; }
   .circles-fig.drawn .callout line { transform-box: fill-box; transform-origin: left center; animation: rc-line .45s var(--ease) backwards; }
   .circles-fig.drawn .callout .pt, .circles-fig.drawn .callout text { animation: rc-fade .5s var(--ease) backwards; }
   .circles-fig.drawn .callout:nth-of-type(1) line { animation-delay: 1.05s; }
@@ -381,8 +382,10 @@ footer { border-top: 1px solid var(--hairline); padding: 1.8rem 0 2.4rem; }
   .circles-fig.drawn .callout:nth-of-type(2) .pt, .circles-fig.drawn .callout:nth-of-type(2) text { animation-delay: 1.05s; }
   .circles-fig.drawn .callout:nth-of-type(3) line { animation-delay: .65s; }
   .circles-fig.drawn .callout:nth-of-type(3) .pt, .circles-fig.drawn .callout:nth-of-type(3) text { animation-delay: .85s; }
-  .circles-fig.drawn .callout:nth-of-type(4) line { animation-delay: .35s; }
-  .circles-fig.drawn .callout:nth-of-type(4) .pt, .circles-fig.drawn .callout:nth-of-type(4) text { animation-delay: .55s; }
+  .circles-fig.drawn .callout:nth-of-type(4) line { animation-delay: .45s; }
+  .circles-fig.drawn .callout:nth-of-type(4) .pt, .circles-fig.drawn .callout:nth-of-type(4) text { animation-delay: .65s; }
+  .circles-fig.drawn .callout:nth-of-type(5) line { animation-delay: .25s; }
+  .circles-fig.drawn .callout:nth-of-type(5) .pt, .circles-fig.drawn .callout:nth-of-type(5) text { animation-delay: .45s; }
   .circles-fig.drawn figcaption { animation: rc-fade .6s var(--ease) 1.5s backwards; }
 }
 @keyframes rc-ring { from { opacity: 0; transform: scale(.82); } }
