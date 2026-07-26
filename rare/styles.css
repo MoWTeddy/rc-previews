@@ -625,3 +625,7 @@ footer .shell { display: block; }
 .lead-quote { max-width: 34rem; margin: 0 auto; text-align: center; }
 .lead-quote blockquote { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: clamp(1.4rem, 2.5vw, 2rem); line-height: 1.35; color: var(--ink); }
 .lead-quote figcaption { margin-top: 1.3rem; font-family: var(--mono); font-size: .7rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-faint); }
+
+/* v40: four-up story grid (2x2) */
+.year-grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 540px) { .year-grid.cols-4 { grid-template-columns: 1fr; } }
