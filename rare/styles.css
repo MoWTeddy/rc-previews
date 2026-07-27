@@ -722,3 +722,20 @@ footer .shell { display: block; }
 @media (max-width: 820px) { .component-row { grid-template-columns: 1fr; } }
 .component-row.flip > :first-child { order: 2; }
 @media (max-width: 820px) { .component-row.flip > :first-child { order: 0; } }
+
+/* v43 fixes: 4-up proof strip, green-section list legibility, index links, card heights */
+.proof-strip .shell { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.proof-strip .ph-note { white-space: normal; }
+
+.sec-green .symptoms li { color: rgba(240, 235, 221, .85); border-color: rgba(240, 235, 221, .16); }
+.sec-green .symptoms li::before { color: #c8a96a; }
+.sec-green .rules-list b { color: #f0ebdd; }
+.sec-green .rules-list p { color: rgba(240, 235, 221, .72); }
+.sec-green .rules-list li { border-color: rgba(240, 235, 221, .16); }
+.sec-green .r-num { color: #c8a96a; }
+
+.rules-list b a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--gold, #c8a96a); padding-bottom: 1px; }
+.rules-list b a:hover { color: var(--green); }
+
+.members-grid { align-items: start; }
+.member-card .spec-tag { align-self: flex-start; }
