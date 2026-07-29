@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Rare Company - brand explorations</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,500&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Newsreader', Georgia, serif; background:#f7f3e9; color:#16140e; padding:3rem 1.5rem 5rem; }
+  .wrap { max-width:1500px; margin:0 auto; }
+  h1 { font-weight:500; font-size:2.2rem; }
+  p.note { font-style:italic; color:rgba(22,20,14,.6); margin:.6rem 0 3rem; max-width:60ch; }
+  .grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:2.5rem; }
+  @media (max-width:900px){ .grid { grid-template-columns:1fr; } }
+  h2 { font-weight:500; font-size:1.4rem; margin-bottom:.2rem; }
+  .tag { font-family:'IBM Plex Mono', monospace; font-size:.62rem; letter-spacing:.18em; text-transform:uppercase; color:#1a4230; }
+  figure { margin-top:.8rem; border:1px solid rgba(22,20,14,.15); border-radius:10px; overflow:hidden; }
+  img { width:100%; display:block; }
+  .cell { margin-bottom:1rem; }
+  .cell p { font-size:.95rem; color:rgba(22,20,14,.7); margin-top:.6rem; line-height:1.5; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Rare Company - four brand explorations</h1>
+  <p class="note">Same content, same layout - only the skin changes. Rendered from the live homepage, 29 July 2026. The current live brand (ivory, racing green, gold) is the control.</p>
+  <div class="grid">
+    <div class="cell"><span class="tag">Option 1</span><h2>The Club</h2><p>Espresso dark, warm ivory, gold primary. Private members' bar. Most "exclusive", least readable for long pages.</p><figure><img src="brand-club.png" alt="Dark club variant"></figure></div>
+    <div class="cell"><span class="tag">Option 2</span><h2>Broadsheet</h2><p>White, near-black, editorial red. FT-adjacent credibility, minimal warmth.</p><figure><img src="brand-broadsheet.png" alt="Broadsheet variant"></figure></div>
+    <div class="cell"><span class="tag">Option 3</span><h2>Heritage</h2><p>Cream, burgundy, gold, Garamond. Old-club handsome; skews the perceived member age up.</p><figure><img src="brand-heritage.png" alt="Heritage variant"></figure></div>
+    <div class="cell"><span class="tag">Option 4</span><h2>Modern minimal</h2><p>Grey, cobalt, grotesk sans. Tech-landing-page zone - the Hampton axis. Weakest fit for a £1k/month private membership.</p><figure><img src="brand-minimal.png" alt="Minimal variant"></figure></div>
+  </div>
+</div>
+</body>
+</html>
