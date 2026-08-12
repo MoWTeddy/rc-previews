@@ -1,0 +1,77 @@
+/* ============================================================
+   RARE COMPANY · NOIR CONCEPT
+   Dark-theme override layered on styles.css (v70).
+   Same type, same layout, same photography - re-inked for night.
+   Gold carries the accents and the buttons, per the brief.
+   ============================================================ */
+
+:root {
+  --ivory: #121110;                       /* the page, now near-black */
+  --ink: #ece7d9;
+  --ink-dim: rgba(236, 231, 217, .72);
+  --ink-faint: rgba(236, 231, 217, .46);
+  --hairline: rgba(236, 231, 217, .14);
+  --green: #1a4230;                       /* panels keep the house green */
+  --green-soft: rgba(26, 66, 48, .34);    /* soft panels become a dark green tint */
+  --gold: #c8a96a;                        /* brighter gold for dark ground */
+  --paper-ivory: #f0ebdd;
+}
+
+/* page ground: light grain flipped to a faint ivory lay */
+body {
+  background: var(--ivory);
+  background-image: repeating-linear-gradient(0deg, rgba(236, 231, 217, .035) 0 1px, transparent 1px 5px);
+}
+
+/* nav */
+.nav { background: rgba(18, 17, 16, .92); }
+.nav-links a:hover, .nav-links a.active { color: var(--gold); border-color: var(--gold); }
+.nav-cta { background: var(--gold); border-color: var(--gold); color: #16140e; }
+.nav-cta:hover { background: var(--paper-ivory); border-color: var(--paper-ivory); color: #16140e; }
+
+/* buttons go gold */
+.btn { background: var(--gold); border-color: var(--gold); color: #16140e; }
+.btn:hover, .btn:focus-visible { background: var(--paper-ivory); border-color: var(--paper-ivory); color: #16140e; }
+.btn-ivory { color: var(--green); background: var(--paper-ivory); border-color: var(--paper-ivory); }
+
+/* accents that were deep green on ivory become gold on black */
+.kicker { color: var(--gold); }
+.ps-stat { color: var(--gold); }
+.hero-explore a { color: var(--gold); border-color: var(--gold); }
+.hero-explore a:hover { color: var(--paper-ivory); border-color: var(--paper-ivory); }
+.more-link { color: var(--gold); border-color: var(--gold); }
+.foot-links a:hover { color: var(--gold); }
+.faq-list summary:hover { color: var(--gold); }
+.signup-fine { color: rgba(236, 231, 217, .6); }
+
+/* strips + soft surfaces read as raised dark panels */
+.proof-strip { background: rgba(26, 66, 48, .22); }
+.closing.grand { background: rgba(26, 66, 48, .22); }
+.guarantee { background: rgba(26, 66, 48, .3); border-left-color: var(--gold); }
+.vet-step { background: rgba(26, 66, 48, .3); }
+
+/* light paper cards become charcoal cards */
+.intro-card, .member-card, .agenda, .case-card, .event-card, .story { background: #1b1916; }
+
+/* green-on-green fixes inside soft (now dark-tint) panels */
+.benefit:nth-of-type(even) .sec-grid .kicker { color: var(--gold); }
+.benefit:nth-of-type(even) .sec-grid .prose .sub-kicker { color: var(--gold); }
+.benefit:nth-of-type(even) .sec-grid .symptoms li::before { color: var(--gold); }
+.benefit:nth-of-type(even) .sec-grid .symptoms li { color: var(--ink-dim); border-color: var(--hairline); }
+.benefit:nth-of-type(even) .sec-grid .prose .asked { border-left-color: rgba(200, 169, 106, .45); }
+.benefit:nth-of-type(even) .sec-grid .prose .asked p:not(.asked-label) { color: var(--ink-dim); }
+.benefit:nth-of-type(even) .sec-grid .prose .asked .asked-label { color: var(--gold); }
+.benefit:nth-of-type(even) .sec-grid .mem-quote blockquote { color: var(--ink); }
+.benefit:nth-of-type(even) .sec-grid .mem-quote cite { color: var(--ink-faint); }
+
+/* deep green panels sit on black - give them a whisper of separation */
+.sec-green .sec-grid, .sec-green .wyg-grid, .benefit .sec-grid, .mem-hero { box-shadow: 0 0 0 1px rgba(236, 231, 217, .07); }
+
+/* photography: let the room glow against the dark */
+.photo-live img, .events-grid img { box-shadow: 0 18px 50px rgba(0, 0, 0, .5); }
+
+/* concept banner */
+.noir-note {
+  font-family: var(--mono); font-size: .62rem; font-weight: 500; letter-spacing: .22em; text-transform: uppercase;
+  text-align: center; color: #16140e; background: var(--gold); padding: .45rem 1rem;
+}
