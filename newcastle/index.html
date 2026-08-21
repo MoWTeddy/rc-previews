@@ -27,23 +27,26 @@
         <a href="https://rarecompany.co.uk/about">About Us</a>
         <a href="https://rarecompany.co.uk/faq">FAQs</a>
       </div>
-      <a class="nav-cta" href="#list">Put your name down</a>
+      <a class="nav-cta" href="#list">Apply for a seat</a>
     </div>
   </nav>
 
   <!-- ===================================== · hero -->
   <header class="hero" id="top">
-    <div class="shell">
-      <div class="hero-copy" style="max-width:56rem">
+    <div class="shell hero-grid">
+      <div class="hero-copy">
         <p class="kicker">Newcastle &middot; Opening soon</p>
         <h1 style="max-width:20ch;font-size:clamp(2rem,3.6vw,3.2rem);margin-top:1.2rem">Rare Company is coming to Newcastle.</h1>
         <p class="lede">Your own board of eight to ten Newcastle owners - every business at &pound;1 million+ turnover or already sold - with the whole Rare Network behind it from day one.</p>
         <p class="lede" style="margin-top:1.1rem;font-size:clamp(1.02rem,1.6vw,1.18rem)">The first Circle's seats are taken once. This page is where you put your name against one.</p>
         <div class="hero-cta">
-          <a class="btn" href="#list">Put your name down</a>
+          <a class="btn" href="#list">Apply for a seat</a>
           <span class="hero-fine">&pound;1m+ turnover or exited &middot; By application &middot; No commitment</span>
         </div>
       </div>
+      <figure class="photo-live">
+        <img src="assets/tyne-bridge.jpg" alt="The Tyne Bridge over the Newcastle Quayside" width="674" height="899">
+      </figure>
     </div>
   </header>
 
@@ -96,7 +99,7 @@
       <p class="kicker" style="color:#c8a96a">How seats get filled</p>
       <h2 style="padding-bottom:1.2rem;color:#f0ebdd">How the first Circle comes together.</h2>
       <ul class="mini-steps" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
-        <li><b>01 &middot; Your name goes down</b>Two minutes, below. It commits you to nothing, and we don't share who's on the list.</li>
+        <li><b>01 &middot; You apply</b>Two minutes, below. It commits you to nothing, and we don't share who has applied.</li>
         <li><b>02 &middot; The conversations</b>When Newcastle has enough owners of the right calibre, we hold vetting calls - with our founders, Eddie and Astan, and no sales team. Fewer than 3% of applicants take a seat.</li>
         <li><b>03 &middot; The Circle convenes</b>Eight to ten owners around one table, every month, backed by the whole network.</li>
       </ul>
@@ -125,9 +128,12 @@
   <!-- ===================================== · the list -->
   <section class="sec" id="list" style="padding-top:clamp(2rem,5vh,3.5rem)">
     <div class="shell reveal" style="max-width:44rem">
-      <p class="kicker">The Newcastle list</p>
-      <h2>Put your name down.</h2>
-      <p class="section-lede">For owners at &pound;1 million+ turnover, or with a multi-million exit behind them. We'll only write to you about Newcastle. Not there yet? The monthly brief below is the way in.</p>
+      <p class="kicker">The first seats</p>
+      <h2>Apply for a seat.</h2>
+      <p class="section-lede">For owners at &pound;1 million+ turnover, or with a multi-million exit behind them. Fewer than 3% of applicants take a seat. Not there yet? The monthly brief below is the way in.</p>
+      <div class="prose" style="margin-top:1.2rem">
+        <p>Every application is read in confidence by the founders, answered within days, and commits you to nothing - a conversation follows before anything else. Applying now puts you in line for the first Newcastle Circle.</p>
+      </div>
 
       <div class="interest-box" style="margin-top:1.8rem">
         <form id="city-list-form" novalidate>
@@ -137,6 +143,9 @@
           </div>
           <div class="field-row">
             <div class="field"><label for="f-website">Company website</label><input type="text" id="f-website" name="website" inputmode="url" placeholder="yourcompany.co.uk" autocomplete="url" required></div>
+            <div class="field"><label for="f-linkedin">LinkedIn profile</label><input type="text" id="f-linkedin" name="linkedin" inputmode="url" placeholder="linkedin.com/in/&hellip;"></div>
+          </div>
+          <div class="field-row">
             <div class="field">
               <label for="f-turnover">Average monthly turnover</label>
               <select id="f-turnover" name="turnover">
@@ -148,12 +157,46 @@
                 <option>Over &pound;850,000 (&pound;10m+ a year)</option>
               </select>
             </div>
+            <div class="field">
+              <label for="f-experience">Have you sold or acquired a company before?</label>
+              <select id="f-experience" name="deal_experience">
+                <option value="" selected disabled>Select one</option>
+                <option>Not yet</option>
+                <option>Sold a company</option>
+                <option>Acquired a company</option>
+                <option>Both</option>
+              </select>
+            </div>
           </div>
+          <div class="field"><label for="f-city">Your nearest city</label><input type="text" id="f-city" name="city" value="Newcastle" required></div>
+          <div class="field"><label for="f-referral">How did you hear about us?</label><input type="text" id="f-referral" name="referral"></div>
+
+          <details class="exception">
+            <summary>Not quite there yet? Request a rare exception</summary>
+            <div class="field" style="margin-top:1.2rem">
+              <label for="f-exception">Why you'd be rare company anyway</label>
+              <textarea id="f-exception" name="exception" rows="3" placeholder="A sentence or two. We keep a small number of seats for owners who don't fit the thresholds but plainly belong."></textarea>
+            </div>
+          </details>
+          <fieldset class="field check-field">
+            <legend>What's brought you here? Tick all that apply.</legend>
+            <div class="check-grid">
+              <label class="check"><input type="checkbox" name="motivation" value="runs-without-me"><span>I want the business to run without me</span></label>
+              <label class="check"><input type="checkbox" name="motivation" value="time-back"><span>I want more time back for my life</span></label>
+              <label class="check"><input type="checkbox" name="motivation" value="pressure"><span>I want support with the stress and pressure of business ownership</span></label>
+              <label class="check"><input type="checkbox" name="motivation" value="selling-soon"><span>I plan to sell within the next five years</span></label>
+              <label class="check"><input type="checkbox" name="motivation" value="maximise-value"><span>I want to grow what the business is worth</span></label>
+              <label class="check"><input type="checkbox" name="motivation" value="peers"><span>I want to be around owners who've done it</span></label>
+              <label class="check"><input type="checkbox" name="motivation" value="live-decision"><span>There's a decision on my desk right now</span></label>
+              <label class="check"><input type="checkbox" name="motivation" value="not-a-networker"><span>I don't attend business networking events or peer groups, and this sounds good</span></label>
+              <label class="check"><input type="checkbox" name="motivation" value="exited"><span>I've already exited - I'd sit on the other side of the table</span></label>
+            </div>
+          </fieldset>
           <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-          <input type="hidden" name="_subject" value="Newcastle list - new name">
+          <input type="hidden" name="_subject" value="New Rare Company membership request - Newcastle">
           <div class="form-foot">
-            <button type="submit" class="btn btn-ivory">Put my name down</button>
-            <span class="form-fine">Held in confidence. We reply to everyone.</span>
+            <button type="submit" class="btn btn-ivory">Apply for a seat</button>
+            <span class="form-fine">Held in confidence. We reply to every request.</span>
           </div>
         </form>
       </div>
