@@ -20,9 +20,9 @@
     }, 2500);
   }
 
-  var form = document.getElementById('interest-form');
+  var form = document.getElementById('city-list-form');
   if (!form) return;
-    var errorLine = document.getElementById('form-error');
+  var errorLine = document.getElementById('form-error');
   var confirmation = document.getElementById('form-confirmation');
 
   var ENDPOINT = 'https://formspree.io/f/mkodbzej';
@@ -40,10 +40,39 @@
       if (!good) ok = false;
     });
     if (!ok) { errorLine.textContent = VALIDATION_MSG; errorLine.hidden = false; return; }
+
+    /* Ambition + the Circle commitment are required too. */
+    var ambition = document.getElementById('f-ambition');
+    if (ambition && ambition.value === '') {
+      ambition.classList.add('invalid');
+      errorLine.textContent = 'Please tell us where you want the business to be in three years.';
+      errorLine.hidden = false; return;
+    }
+    if (ambition) ambition.classList.remove('invalid');
+    var commitment = document.getElementById('f-commitment');
+    if (commitment && !commitment.checked) {
+      errorLine.textContent = 'Circles only work when everyone shows up - please confirm the commitment (or this isn\u2019t the right time).';
+      errorLine.hidden = false; return;
+    }
     errorLine.hidden = true;
 
     var label = submitBtn ? submitBtn.textContent : '';
     if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending\u2026'; }
+
+    /* Mirror the application into Rare Radar (CRM) - fire-and-forget so a
+       Radar hiccup can never break the Formspree submission the user sees. */
+    try {
+      var payload = {};
+      new FormData(form).forEach(function (v, k) {
+        if (k === 'motivation') { (payload.motivations = payload.motivations || []).push(v); }
+        else { payload[k] = v; }
+      });
+      fetch('https://radar.rarecompany.co.uk/api/inbound/application', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).catch(function () {});
+    } catch (mirrorErr) {}
 
     fetch(ENDPOINT, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
       .then(function (res) {

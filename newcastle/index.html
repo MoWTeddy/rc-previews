@@ -222,6 +222,17 @@
               </select>
             </div>
           </div>
+          <div class="field">
+            <label for="f-ambition">Where do you want the business to be in three years?</label>
+            <select id="f-ambition" name="ambition" required>
+              <option value="" selected disabled>Select one</option>
+              <option>Grown significantly (2x or more)</option>
+              <option>Steady, profitable growth</option>
+              <option>Ready to sell</option>
+              <option>Sold</option>
+              <option>Honestly, about where it is now</option>
+            </select>
+          </div>
           <div class="field"><label for="f-city">Your nearest city</label><input type="text" id="f-city" name="city" value="Newcastle" required></div>
           <div class="field"><label for="f-referral">How did you hear about us?</label><input type="text" id="f-referral" name="referral"></div>
 
@@ -246,13 +257,24 @@
               <label class="check"><input type="checkbox" name="motivation" value="exited"><span>I've already exited - I'd sit on the other side of the table</span></label>
             </div>
           </fieldset>
+          <fieldset class="field check-field">
+            <legend>The commitment</legend>
+            <p style="margin:0 0 0.8rem; font-size:0.92em;">Circles meet in person once a month. There are no Circles in August or December - so ten a year, and members make at least eight of them. That's the deal that makes the table worth sitting at.</p>
+            <label class="check"><input type="checkbox" id="f-commitment" name="commitment" value="Committed to at least 8 of 10 Circles a year"><span>I can commit to that</span></label>
+          </fieldset>
           <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
           <input type="hidden" name="_subject" value="New Rare Company membership request - Newcastle">
           <div class="form-foot">
             <button type="submit" class="btn btn-ivory">Apply for a seat</button>
             <span class="form-fine">Held in confidence. We reply to every request.</span>
           </div>
+          <p class="form-error" id="form-error" role="alert" hidden>Please complete your name, email and company website.</p>
         </form>
+
+        <div class="confirmation" id="form-confirmation" hidden>
+          <h3>Thank you - we've got it.</h3>
+          <p>Every application is read by the two of us, and we reply to everyone. If Rare Company is right for you, you'll hear from us directly.<br><span class="conf-sign">- Eddie &amp; Astan</span></p>
+        </div>
       </div>
     </div>
   </section>
