@@ -26,64 +26,174 @@
   var confirmation = document.getElementById('form-confirmation');
 
   var ENDPOINT = 'https://formspree.io/f/mkodbzej';
-  var submitBtn = form.querySelector('button[type="submit"]');
-  var VALIDATION_MSG = 'Please complete your name, email and company website.';
+  var PROGRESS_ENDPOINT = 'https://radar.rarecompany.co.uk/api/inbound/application-progress';
   var NETWORK_MSG = 'Something went wrong sending your application. Please try again, or email hello@rarecompany.co.uk.';
+
+  var pages = [].slice.call(form.querySelectorAll('.form-page'));
+  var backBtn = document.getElementById('form-back');
+  var nextBtn = document.getElementById('form-next');
+  var submitBtn = document.getElementById('form-submit');
+  var progressEl = document.getElementById('form-progress');
+  var TOTAL = pages.length;
+  var current = 1;
+
+  /* Progress mirrors into Rare Radar per page; fire-and-forget. Lander keys
+     are separate from the main /apply form so the two never fight, and the
+     city prefill is never overwritten by restore. */
+  function sessionId() {
+    try {
+      var s = localStorage.getItem('rc_lander_session');
+      if (!s) {
+        s = (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
+          : ('a0' + Date.now().toString(16) + '-' + Math.random().toString(16).slice(2, 10));
+        localStorage.setItem('rc_lander_session', s);
+      }
+      return s;
+    } catch (e) { return 'a0' + Date.now().toString(16); }
+  }
+  function payload() {
+    var p = {};
+    new FormData(form).forEach(function (v, k) {
+      if (k === 'motivation') { (p.motivations = p.motivations || []).push(v); }
+      else { p[k] = v; }
+    });
+    return p;
+  }
+  function saveLocal() {
+    try {
+      localStorage.setItem('rc_lander_data', JSON.stringify(payload()));
+      localStorage.setItem('rc_lander_step', String(current));
+    } catch (e) {}
+  }
+  function restoreLocal() {
+    try {
+      var raw = localStorage.getItem('rc_lander_data');
+      if (raw) {
+        var d = JSON.parse(raw);
+        Object.keys(d).forEach(function (k) {
+          if (k === 'motivations') {
+            (d[k] || []).forEach(function (v) {
+              var box = form.querySelector('input[name="motivation"][value="' + v + '"]');
+              if (box) box.checked = true;
+            });
+          } else if (k === 'commitment') {
+            var cc = document.getElementById('f-commitment');
+            if (cc) cc.checked = true;
+          } else if (k === 'investment') {
+            var ii = document.getElementById('f-investment');
+            if (ii) ii.checked = true;
+          } else if (k !== '_gotcha' && k !== '_subject' && k !== 'city') {
+            var fld = form.querySelector('[name="' + k + '"]');
+            if (fld) fld.value = d[k];
+          }
+        });
+      }
+      var st = parseInt(localStorage.getItem('rc_lander_step') || '1', 10);
+      if (st > 1 && st <= TOTAL) current = st;
+    } catch (e) {}
+  }
+  function postProgress(complete) {
+    try {
+      var p = payload();
+      p.session = sessionId();
+      p.step = current;
+      if (complete) p.complete = true;
+      return fetch(PROGRESS_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(p)
+      }).catch(function () {});
+    } catch (e) { return Promise.resolve(); }
+  }
+
+  function fail(msg) { errorLine.textContent = msg; errorLine.hidden = false; }
+  function fieldOk(id) {
+    var fld = document.getElementById(id);
+    var good = fld && fld.value.trim() !== '' && fld.checkValidity();
+    if (fld) fld.classList.toggle('invalid', !good);
+    return good;
+  }
+  function validate(page) {
+    errorLine.hidden = true;
+    if (page === 1) {
+      var ok = ['f-name', 'f-email', 'f-website', 'f-city'].map(fieldOk).every(Boolean);
+      if (!ok) { fail('Please complete your name, email, company website and nearest city.'); return false; }
+    }
+    if (page === 2) {
+      var amb = document.getElementById('f-ambition');
+      if (amb && amb.value === '') {
+        amb.classList.add('invalid');
+        fail('Please tell us where you want the business to be in three years.');
+        return false;
+      }
+      if (amb) amb.classList.remove('invalid');
+    }
+    if (page === 4) {
+      var c = document.getElementById('f-commitment');
+      if (c && !c.checked) {
+        fail('Circles only work when everyone shows up - please confirm the commitment (or this isn’t the right time).');
+        return false;
+      }
+    }
+    if (page === 5) {
+      var inv = document.getElementById('f-investment');
+      if (inv && !inv.checked) {
+        fail('Please confirm the investment works for you before applying.');
+        return false;
+      }
+    }
+    return true;
+  }
+  function show(page) {
+    current = page;
+    pages.forEach(function (p) { p.hidden = (parseInt(p.getAttribute('data-page'), 10) !== page); });
+    backBtn.style.display = (page === 1) ? 'none' : '';
+    nextBtn.style.display = (page === TOTAL) ? 'none' : '';
+    submitBtn.style.display = (page === TOTAL) ? '' : 'none';
+    progressEl.textContent = 'Step ' + page + ' of ' + TOTAL;
+    errorLine.hidden = true;
+  }
+
+  nextBtn.addEventListener('click', function () {
+    if (!validate(current)) return;
+    postProgress(false);
+    show(current + 1);
+    saveLocal();
+  });
+  backBtn.addEventListener('click', function () { show(current - 1); saveLocal(); });
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var required = ['f-name', 'f-email', 'f-website'], ok = true;
-    required.forEach(function (id) {
-      var fld = document.getElementById(id);
-      var good = fld.value.trim() !== '' && fld.checkValidity();
-      fld.classList.toggle('invalid', !good);
-      if (!good) ok = false;
-    });
-    if (!ok) { errorLine.textContent = VALIDATION_MSG; errorLine.hidden = false; return; }
+    if (!validate(1)) { show(1); return; }
+    if (!validate(2)) { show(2); return; }
+    if (!validate(4)) { show(4); return; }
+    if (!validate(5)) { return; }
 
-    /* Ambition + the Circle commitment are required too. */
-    var ambition = document.getElementById('f-ambition');
-    if (ambition && ambition.value === '') {
-      ambition.classList.add('invalid');
-      errorLine.textContent = 'Please tell us where you want the business to be in three years.';
-      errorLine.hidden = false; return;
-    }
-    if (ambition) ambition.classList.remove('invalid');
-    var commitment = document.getElementById('f-commitment');
-    if (commitment && !commitment.checked) {
-      errorLine.textContent = 'Circles only work when everyone shows up - please confirm the commitment (or this isn\u2019t the right time).';
-      errorLine.hidden = false; return;
-    }
-    errorLine.hidden = true;
+    var label = submitBtn.textContent;
+    submitBtn.disabled = true; submitBtn.textContent = 'Sending…';
 
-    var label = submitBtn ? submitBtn.textContent : '';
-    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending\u2026'; }
-
-    /* Mirror the application into Rare Radar (CRM) - fire-and-forget so a
-       Radar hiccup can never break the Formspree submission the user sees. */
-    try {
-      var payload = {};
-      new FormData(form).forEach(function (v, k) {
-        if (k === 'motivation') { (payload.motivations = payload.motivations || []).push(v); }
-        else { payload[k] = v; }
-      });
-      fetch('https://radar.rarecompany.co.uk/api/inbound/application', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      }).catch(function () {});
-    } catch (mirrorErr) {}
+    postProgress(true);
 
     fetch(ENDPOINT, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
       .then(function (res) {
-        if (res.ok) { form.hidden = true; confirmation.hidden = false; return; }
+        if (res.ok) {
+          try {
+            localStorage.removeItem('rc_lander_session');
+            localStorage.removeItem('rc_lander_data');
+            localStorage.removeItem('rc_lander_step');
+          } catch (err) {}
+          form.hidden = true; confirmation.hidden = false; return;
+        }
         throw new Error('bad response');
       })
       .catch(function () {
-        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = label; }
-        errorLine.textContent = NETWORK_MSG; errorLine.hidden = false;
+        submitBtn.disabled = false; submitBtn.textContent = label;
+        fail(NETWORK_MSG);
       });
   });
+
+  restoreLocal();
+  show(current);
 })();
 
 /* circles diagram: one-shot draw-in when scrolled into view (visible regardless) */
