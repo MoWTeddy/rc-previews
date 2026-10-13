@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="ambition.css?v=4">
+  <link rel="stylesheet" href="ambition.css?v=5">
 </head>
 <body>
   <div class="concept">Concept for review · Not live · Revised copy + dark theme</div>
@@ -41,60 +41,96 @@
     <div class="shell" style="padding-top:clamp(3.5rem,9vh,7rem);padding-bottom:clamp(2.5rem,6vh,4rem)">
       <h1>Apply <em class="gold">now.</em></h1>
       <div class="prose" style="margin-top:1.6rem">
-        <p class="lead">Our members are typically at £2m-£20m turnover (we have a minimum £1m annual turnover or significant cash exit entry requirement). Fewer than 3% of applicants take a seat.</p>
-        <p>Every application is read in confidence by the founders, answered within days, and commits you to nothing. A conversation follows before anything else. Circles are local: your application also counts as a request for a Circle in your city, and new Circles open where enough serious owners apply.</p>
+        <p class="lead">Our members are typically at £2m-£20m turnover (we have a minimum £1m annual turnover or significant cash exit entry requirement). Fewer than 3% of applicants take a seat. Not there yet? The monthly brief is the way in.</p>
+        <p>Every application is read in confidence by the founders, answered within days, and commits you to nothing - a conversation follows before anything else. Circles are local: your application also counts as a request for a Circle in your city, and new Circles open where enough serious owners apply.</p>
       </div>
     </div>
   </header>
 
-  <section class="sec">
+  <section class="sec" id="form">
     <div class="shell">
-      <form class="form" onsubmit="return false" aria-label="Application (preview)">
-        <fieldset class="fieldset">
-          <legend>About you and the business</legend>
-          <div class="fields">
-            <div class="field"><label for="f-name">Name</label><input id="f-name" autocomplete="name"></div>
-            <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" autocomplete="email"></div>
-            <div class="field"><label for="f-web">Company website</label><input id="f-web" placeholder="yourcompany.co.uk"></div>
-            <div class="field"><label for="f-li">LinkedIn profile</label><input id="f-li" placeholder="linkedin.com/in/…"></div>
-            <div class="field"><label for="f-city">Your nearest city</label><select id="f-city"><option value="">Select one</option><option>Manchester</option><option>Leeds</option><option>London</option><option>Cambridge</option><option>Peterborough</option><option>Stoke-on-Trent</option><option>Harrogate</option><option>Basildon</option><option>Colchester</option><option>Horsham</option><option>Gillingham</option><option>Somewhere else</option></select></div>
-            <div class="field"><label for="f-turn">Average monthly turnover</label><select id="f-turn"><option value="">Select one</option><option>Under £75,000</option><option>£75,000 – £150,000 (£1m – £2m a year)</option><option>£150,000 – £400,000 (£2m – £5m a year)</option><option>£400,000 – £850,000 (£5m – £10m a year)</option><option>Over £850,000 (£10m+ a year)</option></select></div>
-            <div class="field"><label for="f-exit">Sold or acquired a company before?</label><select id="f-exit"><option value="">Select one</option><option>Not yet</option><option>Sold a company</option><option>Acquired a company</option><option>Both</option></select></div>
-            <div class="field"><label for="f-amb">Where do you want the business in three years?</label><select id="f-amb"><option value="">Select one</option><option>Grown significantly (2x or more)</option><option>Steady, profitable growth</option><option>Ready to sell</option><option>Sold</option><option>Honestly, about where it is now</option></select></div>
-            <div class="field full"><label for="f-exc">Not quite there yet? Request a rare exception</label><textarea id="f-exc" placeholder="Why you'd be rare company anyway"></textarea></div>
-            <div class="field full"><label for="f-heard">How did you hear about us?</label><input id="f-heard"></div>
+      <div class="apply-box">
+        <form id="interest-form" class="form" novalidate>
+          <div class="form-page" data-page="1">
+            <div class="fields">
+              <div class="field"><label for="f-name">Name</label><input type="text" id="f-name" name="name" autocomplete="name" required></div>
+              <div class="field"><label for="f-email">Email</label><input type="email" id="f-email" name="email" autocomplete="email" required></div>
+              <div class="field"><label for="f-website">Company website</label><input type="text" id="f-website" name="website" inputmode="url" placeholder="yourcompany.co.uk" autocomplete="url" required></div>
+              <div class="field"><label for="f-linkedin">LinkedIn profile</label><input type="text" id="f-linkedin" name="linkedin" inputmode="url" placeholder="linkedin.com/in/…"></div>
+              <div class="field full"><label for="f-city">Your nearest city</label><input type="text" id="f-city" name="city" placeholder="e.g. Manchester" required></div>
+            </div>
           </div>
-        </fieldset>
 
-        <fieldset class="fieldset">
-          <legend>What's brought you here?</legend>
-          <p class="note">Tick all that apply.</p>
-          <div class="ticks"><label class="tick"><input type="checkbox" name="why"> I want the business to run without me</label><label class="tick"><input type="checkbox" name="why"> I want more time back for my life</label><label class="tick"><input type="checkbox" name="why"> I want support with the stress and pressure of business ownership</label><label class="tick"><input type="checkbox" name="why"> I plan to sell within the next five years</label><label class="tick"><input type="checkbox" name="why"> I want to grow what the business is worth</label><label class="tick"><input type="checkbox" name="why"> I want a peer board of my own</label><label class="tick"><input type="checkbox" name="why"> I want to be around owners who've done it</label><label class="tick"><input type="checkbox" name="why"> There's a decision on my desk right now</label><label class="tick"><input type="checkbox" name="why"> I don't attend business networking events or peer groups, and this sounds good</label><label class="tick"><input type="checkbox" name="why"> I've already exited - I'd sit on the other side of the table</label></div>
-        </fieldset>
-
-        <fieldset class="fieldset">
-          <legend>Before you send it</legend>
-          <div class="commit">
-            <p><b style="color:var(--ivory);font-weight:500">The commitment.</b> Circles meet in person once a month. There are no Circles in August or December, so ten a year, and members make at least eight of them. That's the deal that makes the table worth sitting at.</p>
-            <label class="tick"><input type="checkbox"> I can commit to that</label>
+          <div class="form-page" data-page="2" hidden>
+            <div class="fields">
+              <div class="field"><label for="f-turnover">Average monthly turnover</label><select id="f-turnover" name="turnover"><option value="" selected disabled>Select one</option><option>Under £75,000</option><option>£75,000 – £150,000 (£1m – £2m a year)</option><option>£150,000 – £400,000 (£2m – £5m a year)</option><option>£400,000 – £850,000 (£5m – £10m a year)</option><option>Over £850,000 (£10m+ a year)</option></select></div>
+              <div class="field"><label for="f-experience">Have you sold or acquired a company before?</label><select id="f-experience" name="deal_experience"><option value="" selected disabled>Select one</option><option>Not yet</option><option>Sold a company</option><option>Acquired a company</option><option>Both</option></select></div>
+              <div class="field full"><label for="f-ambition">Where do you want the business to be in three years?</label><select id="f-ambition" name="ambition" required><option value="" selected disabled>Select one</option><option>Grown significantly (2x or more)</option><option>Steady, profitable growth</option><option>Ready to sell</option><option>Sold</option><option>Honestly, about where it is now</option></select></div>
+            </div>
+            <details class="exception">
+              <summary>Not quite there yet? Request a rare exception</summary>
+              <div class="field" style="margin-top:1.2rem">
+                <label for="f-exception">Why you'd be rare company anyway</label>
+                <textarea id="f-exception" name="exception" rows="3" placeholder="A sentence or two. We keep a small number of seats for owners who don't fit the thresholds but plainly belong."></textarea>
+              </div>
+            </details>
           </div>
-          <div class="commit">
-            <p><b style="color:var(--ivory);font-weight:500">The investment.</b> Membership is a paid, twelve-month commitment. It ensures the quality of the room, and that every seat at the table is as committed as you are.</p>
-            <label class="tick"><input type="checkbox"> If my application is successful and I choose to become a member, I'm in a position to commit to a twelve-month business investment</label>
-          </div>
-        </fieldset>
 
-        <div class="form-end">
-          <button class="btn" type="submit" style="cursor:not-allowed">Apply now</button>
+          <div class="form-page" data-page="3" hidden>
+            <div class="field"><label for="f-referral">How did you hear about us?</label><input type="text" id="f-referral" name="referral"></div>
+            <p class="step-q">What's brought you here? Tick all that apply.</p>
+            <div class="ticks"><label class="tick"><input type="checkbox" name="motivation" value="runs-without-me"> I want the business to run without me</label><label class="tick"><input type="checkbox" name="motivation" value="time-back"> I want more time back for my life</label><label class="tick"><input type="checkbox" name="motivation" value="pressure"> I want support with the stress and pressure of business ownership</label><label class="tick"><input type="checkbox" name="motivation" value="selling-soon"> I plan to sell within the next five years</label><label class="tick"><input type="checkbox" name="motivation" value="maximise-value"> I want to grow what the business is worth</label><label class="tick"><input type="checkbox" name="motivation" value="peer-board"> I want a peer board of my own</label><label class="tick"><input type="checkbox" name="motivation" value="peers"> I want to be around owners who've done it</label><label class="tick"><input type="checkbox" name="motivation" value="live-decision"> There's a decision on my desk right now</label><label class="tick"><input type="checkbox" name="motivation" value="not-a-networker"> I don't attend business networking events or peer groups, and this sounds good</label><label class="tick"><input type="checkbox" name="motivation" value="exited"> I've already exited - I'd sit on the other side of the table</label></div>
+          </div>
+
+          <div class="form-page" data-page="4" hidden>
+            <div class="commit">
+              <p class="step-q" style="margin-top:0">The commitment</p>
+              <p>Circles meet in person once a month. There are no Circles in August or December - so ten a year, and members make at least eight of them. That's the deal that makes the table worth sitting at.</p>
+              <label class="tick"><input type="checkbox" id="f-commitment" name="commitment"> I can commit to that</label>
+            </div>
+          </div>
+
+          <div class="form-page" data-page="5" hidden>
+            <div class="commit">
+              <p class="step-q" style="margin-top:0">The investment</p>
+              <p>Membership is a paid, twelve-month commitment. It ensures the quality of the room - and that every seat at the table is as committed as you are.</p>
+              <label class="tick"><input type="checkbox" id="f-investment" name="investment"> If my application is successful and I choose to become a member, I'm in a position to commit to a twelve-month business investment</label>
+            </div>
+          </div>
+
+          <div class="form-nav">
+            <button type="button" id="form-back" class="back-link" style="display:none">← Back</button>
+            <span class="form-nav-right">
+              <span class="fine" id="form-progress">Step 1 of 5 (3 minutes)</span>
+              <button type="button" id="form-next" class="btn">Next</button>
+              <button type="submit" id="form-submit" class="btn" style="display:none">Apply now</button>
+            </span>
+          </div>
           <p class="fine">Held in confidence. We reply to every request.</p>
+          <p class="form-error" id="form-error" role="alert" hidden></p>
+          <p class="preview-note">Preview only: the last step doesn't send anything. The live form at rarecompany.co.uk/apply is the one that works.</p>
+        </form>
+
+        <div class="confirmation" id="form-confirmation" hidden>
+          <h3>Thank you - we've got it.</h3>
+          <p>Every application is read by the two of us, and we reply to everyone. If Rare Company is right for you, you'll hear from us directly.</p>
+          <p class="sign">- Eddie &amp; Astan</p>
+          <p class="preview-note">Preview: nothing was sent.</p>
         </div>
-        <p class="preview-note">Preview only: this form doesn't send. The live form at rarecompany.co.uk/apply is the one that works.</p>
-      </form>
+      </div>
     </div>
   </section>
 
   <footer>
     <div class="shell">
+      <form class="signup" onsubmit="return false" aria-label="Newsletter (preview)">
+        <label for="nl-foot">The monthly brief</label>
+        <div class="signup-row">
+          <input type="email" id="nl-foot" placeholder="you@company.co.uk" autocomplete="email">
+          <button type="submit">Subscribe</button>
+        </div>
+        <p class="signup-fine">What the owners we work with are building, learning and discussing in private. One email a month, unsubscribe anytime.</p>
+      </form>
       <nav class="foot-links" aria-label="Footer">
         <a href="./">Home</a>
         <a href="membership.html">Membership</a>
@@ -110,5 +146,6 @@
     </div>
   </footer>
   <script src="reveal.js"></script>
+  <script src="apply-preview.js"></script>
 </body>
 </html>

@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="ambition.css?v=4">
+  <link rel="stylesheet" href="ambition.css?v=5">
 </head>
 <body>
   <div class="concept">Concept for review · Not live · Revised copy + dark theme</div>
@@ -173,6 +173,14 @@
 
   <footer>
     <div class="shell">
+      <form class="signup" onsubmit="return false" aria-label="Newsletter (preview)">
+        <label for="nl-foot">The monthly brief</label>
+        <div class="signup-row">
+          <input type="email" id="nl-foot" placeholder="you@company.co.uk" autocomplete="email">
+          <button type="submit">Subscribe</button>
+        </div>
+        <p class="signup-fine">What the owners we work with are building, learning and discussing in private. One email a month, unsubscribe anytime.</p>
+      </form>
       <nav class="foot-links" aria-label="Footer">
         <a href="./">Home</a>
         <a href="membership.html">Membership</a>

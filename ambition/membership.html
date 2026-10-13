@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="ambition.css?v=4">
+  <link rel="stylesheet" href="ambition.css?v=5">
 </head>
 <body>
   <div class="concept">Concept for review · Not live · Revised copy + dark theme</div>
@@ -63,6 +63,37 @@
         <p>That's why we've brought together owners who've built, scaled, acquired and sold substantial businesses, alongside those with equally serious ambitions for what comes next.</p>
         <p>People who can challenge your thinking, open doors, share hard-earned experience and hold you to the standards you've set for yourself.</p>
         <p class="turn">This is not another business network. It’s a membership built for owners who intend to go a lot further.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="includes">
+    <div class="shell split">
+      <div class="rv">
+        <h2>What membership includes.</h2>
+        <ul class="inc-list">
+          <li><a href="#circle"><b>Your Circle</b><span>A private board of owners who are building serious companies.</span></a></li>
+          <li><a href="#network"><b>Your Network</b><span>Access owners who've already achieved what you're working towards.</span></a></li>
+          <li><a href="#experiences"><b>Your Experiences</b><span>Private events and experiences with owners you'd actually want to spend time with.</span></a></li>
+        </ul>
+      </div>
+      <div class="venn-panel rv">
+        <figure>
+          <svg viewBox="0 0 640 585" role="img" aria-label="Your Circle, your network and your experiences overlap, with you at the centre" style="width:100%;height:auto">
+            <circle cx="320" cy="212" r="148" fill="none" stroke="rgba(200,169,106,.9)" stroke-width="1.5" stroke-dasharray="3 7" stroke-linecap="round"/>
+            <circle cx="250" cy="334" r="148" fill="none" stroke="rgba(239,233,218,.45)" stroke-width="1.5" stroke-dasharray="3 7" stroke-linecap="round"/>
+            <circle cx="390" cy="334" r="148" fill="none" stroke="rgba(239,233,218,.45)" stroke-width="1.5" stroke-dasharray="3 7" stroke-linecap="round"/>
+            <text x="320" y="34" text-anchor="middle" fill="#c8a96a" style="font-family:var(--serif);font-size:25px;font-weight:500">Your Circle</text>
+            <text x="320" y="54" text-anchor="middle" fill="rgba(239,233,218,.78)" style="font-family:var(--mono);font-size:11px;letter-spacing:.08em">8&#8211;10 OWNERS &#183; MONTHLY</text>
+            <text x="165" y="516" text-anchor="middle" fill="#efe9da" style="font-family:var(--serif);font-size:23px;font-weight:500">Your Network</text>
+            <text x="165" y="536" text-anchor="middle" fill="rgba(239,233,218,.78)" style="font-family:var(--mono);font-size:11px;letter-spacing:.08em">OWNERS ACROSS THE UK</text>
+            <text x="475" y="516" text-anchor="middle" fill="#efe9da" style="font-family:var(--serif);font-size:23px;font-weight:500">Your Experiences</text>
+            <text x="475" y="536" text-anchor="middle" fill="rgba(239,233,218,.78)" style="font-family:var(--mono);font-size:11px;letter-spacing:.08em">DINNERS &#183; EVENTS &#183; TRIPS</text>
+            <g stroke="#c8a96a" stroke-width="3" stroke-linecap="round" fill="none"><path d="M320 262v36M304.4 271l31.2 18M335.6 271l-31.2 18"/></g>
+            <text x="320" y="330" text-anchor="middle" fill="rgba(239,233,218,.82)" style="font-family:var(--mono);font-size:11px;letter-spacing:.16em">YOU</text>
+          </svg>
+          <figcaption>You at the centre. Your Circle every month, the wider network when you need it, and experiences throughout the year.</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -170,6 +201,14 @@
 
   <footer>
     <div class="shell">
+      <form class="signup" onsubmit="return false" aria-label="Newsletter (preview)">
+        <label for="nl-foot">The monthly brief</label>
+        <div class="signup-row">
+          <input type="email" id="nl-foot" placeholder="you@company.co.uk" autocomplete="email">
+          <button type="submit">Subscribe</button>
+        </div>
+        <p class="signup-fine">What the owners we work with are building, learning and discussing in private. One email a month, unsubscribe anytime.</p>
+      </form>
       <nav class="foot-links" aria-label="Footer">
         <a href="./">Home</a>
         <a href="membership.html">Membership</a>

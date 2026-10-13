@@ -270,3 +270,44 @@ footer { border-top: 1px solid var(--hairline); padding: 3.5rem 0 2.5rem; backgr
 .founders { max-width: 52rem; }
 .founder figure { aspect-ratio: 1 / 1; }
 .fields { align-items: end; }
+
+/* five-step apply form (mirrors the live form) */
+.apply-box { max-width: 46rem; background: var(--ground-2); border: 1px solid var(--hairline); border-radius: var(--radius); padding: clamp(1.4rem, 4vw, 2.6rem); }
+.form-page[hidden] { display: none; }
+.step-q { color: var(--ivory); font-size: 1.15rem; margin: 1.6rem 0 1rem; }
+.exception { margin-top: 1.4rem; }
+.exception summary { cursor: pointer; color: var(--gold); font-style: italic; font-size: 1.05rem; }
+.exception summary:focus-visible { outline: 1px solid var(--gold); outline-offset: 3px; }
+.form-nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
+.form-nav-right { margin-left: auto; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.form-nav-right .fine { margin-top: 0; }
+.back-link { background: none; border: 0; cursor: pointer; font: inherit; color: var(--ivory-dim); text-decoration: underline; text-underline-offset: 3px; padding: 0; }
+.back-link:hover { color: var(--gold); }
+.field .invalid, .field input.invalid, .field select.invalid { border-color: #e08a7a; }
+.form-error { margin-top: 1rem; color: #f0a999; font-size: 1rem; }
+.confirmation h3 { color: var(--ivory); }
+.confirmation p { color: var(--ivory-dim); margin-top: 1rem; }
+.confirmation .sign { color: var(--gold); font-style: italic; }
+.apply-box .commit { margin-top: 0; }
+
+/* footer newsletter (visual only in the preview) */
+.signup { max-width: 34rem; margin-bottom: 2.6rem; }
+.signup label { display: block; font-size: 1.25rem; color: var(--ivory); margin-bottom: .8rem; }
+.signup-row { display: flex; gap: .6rem; flex-wrap: wrap; }
+.signup-row input { flex: 1 1 14rem; font: inherit; font-size: 1rem; color: var(--ivory); background: var(--card); border: 1px solid rgba(239, 233, 218, .22); border-radius: 999px; padding: .75rem 1.1rem; }
+.signup-row input:focus { outline: none; border-color: var(--gold); }
+.signup-row input::placeholder { color: var(--ivory-faint); }
+.signup-row button { font-family: var(--mono); font-size: .7rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--ground); background: var(--gold); border: 1px solid var(--gold); border-radius: 999px; padding: .75rem 1.4rem; cursor: pointer; }
+.signup-row button:hover { background: var(--ivory); border-color: var(--ivory); }
+.signup-fine { margin-top: .8rem; color: var(--ivory-faint); font-size: .95rem; }
+
+/* membership Venn (carried over from the live site) */
+.venn-panel { background: var(--racing); border-radius: var(--radius); padding: clamp(1.4rem, 4vw, 3rem); }
+.venn-panel figure { margin: 0; }
+.venn-panel figcaption { margin-top: 1.4rem; text-align: center; font-size: 1rem; line-height: 1.6; color: var(--ivory-dim); }
+.inc-list { list-style: none; margin-top: 2rem; border-top: 1px solid var(--gold-soft); }
+.inc-list li { border-bottom: 1px solid var(--gold-soft); }
+.inc-list a { display: block; padding: 1.2rem 0; text-decoration: none; }
+.inc-list b { display: block; font-weight: 500; font-size: 1.35rem; color: var(--ivory); transition: color .3s var(--ease); }
+.inc-list span { display: block; margin-top: .3rem; color: var(--ivory-dim); font-size: 1.05rem; }
+.inc-list a:hover b { color: var(--gold); }
