@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Image Options</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Hedvig+Letters+Serif:opsz@12..24&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="ambition.css?v=12">
+  <style>
+    .intro { padding: 3rem 0 1rem; color: var(--ivory-dim); max-width: 62ch; }
+    .intro p + p { margin-top: .8rem; }
+    .jump { display: flex; flex-wrap: wrap; gap: .5rem 1.2rem; margin-top: 1.2rem; }
+    .jump a { color: var(--gold); }
+    .opt-tag { background: var(--gold); color: var(--ground); padding: .9rem 0; margin-top: 4rem; }
+    .opt-tag strong { font-family: var(--head); font-weight: 400; font-size: 1.3rem; }
+    .opt-tag span { margin-left: 1rem; }
+    .hero .hero-cta a, .pillar a { pointer-events: none; }
+
+    /* shared by every option: square corners, no hairline frames */
+    .treat { --radius: 0; }
+    .treat .hero-photo::after { box-shadow: none; border-radius: 0; }
+    .treat .pillar { border: 0; }
+
+    /* A: full bleed - photo runs to the edge of the screen, text sits beside it */
+    .tA .hero-grid { max-width: none; padding-right: 0; padding-top: 0; padding-bottom: 0; align-items: stretch; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+    .tA .hero-grid > div { align-self: center; padding: clamp(3rem, 8vh, 6rem) 0; max-width: 620px; margin-left: auto; }
+    .tA .hero-photo { aspect-ratio: auto; min-height: 640px; }
+    .tA .hero-photo::after { background: linear-gradient(90deg, var(--ground) 0%, rgba(18,19,17,0) 22%); }
+    .tA .pillar { background: transparent; }
+    .tA .pillar figure { aspect-ratio: 3 / 4; }
+    .tA .pillar-body { padding: 1.4rem 0 0; }
+
+    /* B: print - square photo, no box, a small caption like a magazine */
+    .tB .hero-photo { overflow: visible; aspect-ratio: auto; }
+    .tB .hero-photo img { aspect-ratio: 674 / 760; }
+    .tB .hero-photo::after { display: none; }
+    .tB figcaption { margin-top: .8rem; padding-top: .7rem; border-top: 1px solid var(--gold-soft); color: var(--ivory-faint); font-size: .95rem; }
+    .tB .pillar { background: transparent; }
+    .tB .pillar-body { padding: 1.3rem 0 0; border-top: 1px solid var(--gold); margin-top: 1.2rem; }
+
+    /* C: arch - the top of each photo is arched, echoing the brick arches in the room */
+    .tC .hero-photo { border-radius: 999px 999px 0 0; aspect-ratio: 3 / 4; }
+    .tC .hero-photo::after { border-radius: 999px 999px 0 0; background: none; }
+    .tC .pillar { background: transparent; }
+    .tC .pillar figure { border-radius: 999px 999px 0 0; aspect-ratio: 4 / 5; }
+    .tC .pillar-body { padding: 1.4rem 0 0; text-align: center; }
+
+    /* D: cinematic - the photo fills the whole hero and the words sit on it */
+    .tD .hero { min-height: 720px; display: flex; align-items: flex-end; }
+    .tD .hero-bg { position: absolute; inset: 0; }
+    .tD .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; filter: saturate(.75) contrast(1.05); }
+    .tD .hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(18,19,17,.92) 0%, rgba(18,19,17,.7) 45%, rgba(18,19,17,.15) 100%), linear-gradient(0deg, rgba(18,19,17,.85) 0%, rgba(18,19,17,0) 40%); }
+    .tD .hero .shell { position: relative; width: 100%; padding-top: 6rem; padding-bottom: clamp(3rem, 8vh, 5rem); }
+    .tD .pillars { gap: 0; }
+    .tD .pillar { position: relative; background: transparent; }
+    .tD .pillar figure { aspect-ratio: 3 / 4; }
+    .tD .pillar figure::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(18,19,17,.95) 0%, rgba(18,19,17,.6) 45%, rgba(18,19,17,0) 75%); }
+    .tD .pillar-body { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.6rem; }
+    .tD .pillar-body p:not(.first) { display: none; }
+
+    @media (max-width: 860px) {
+      .tA .hero-grid { padding-right: clamp(1rem, 5vw, 4rem); }
+      .tA .hero-grid > div { margin-left: 0; }
+      .tA .hero-photo { min-height: 0; aspect-ratio: 4 / 3; }
+      .tD .pillars { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell intro">
+    <p>Four ways to show the photos, using the real home hero and "What you get" cards. All four drop the rounded corners and thin outline. Cards and boxes go square to match.</p>
+    <p class="jump"><a href="#A">A · Full bleed</a><a href="#B">B · Print</a><a href="#C">C · Arch</a><a href="#D">D · Cinematic</a></p>
+  </div>
+  <div id="host"></div>
+
+  <template id="tpl">
+    <header class="hero">
+      <div class="hero-bg"><img src="assets/hero-room.jpg" alt=""></div>
+      <div class="shell hero-grid">
+        <div>
+          <h1>Business owners with <em class="gold">eight&#8209;figure ambitions</em> don't surround themselves with just anyone</h1>
+          <p class="lede">Join the private membership bringing together British owners determined to build substantially bigger businesses, achieve significant exits and create serious personal wealth</p>
+          <div class="hero-cta">
+            <a class="btn" href="#">Apply to Rare Company</a>
+            <a class="more-link" href="#">Explore membership →</a>
+          </div>
+        </div>
+        <figure class="hero-photo">
+          <img src="assets/hero-room.jpg" alt="Founders in conversation at a Rare Company session" width="674" height="899">
+          <figcaption>A Circle session in progress.</figcaption>
+        </figure>
+      </div>
+    </header>
+    <section class="sec sec-alt">
+      <div class="shell">
+        <div class="sec-head"><h2>What you get as a member</h2></div>
+        <div class="pillars">
+          <article class="pillar">
+            <figure><img src="assets/circle-session.jpg" alt="A Circle session around the table" width="1200" height="900"></figure>
+            <div class="pillar-body"><h3>Your Circle</h3><p class="first">Eight to ten carefully selected owners meet in person every month in your city.</p><p>You work through real numbers, major decisions and the things holding your businesses back.</p></div>
+          </article>
+          <article class="pillar">
+            <figure><img src="assets/event-conversation.jpg" alt="Members in conversation" width="1200" height="900"></figure>
+            <div class="pillar-body"><h3>Your Network</h3><p class="first">Access ambitious owners across the UK who've scaled, acquired, stepped away and sold.</p><p>When something significant comes up, you can speak to someone who has already done it.</p></div>
+          </article>
+          <article class="pillar">
+            <figure><img src="assets/event-dinner.jpg" alt="A private members' dinner" width="1200" height="900"></figure>
+            <div class="pillar-body"><h3>Your Experiences</h3><p class="first">Private dinners, exclusive events and experiences throughout the year.</p><p>Spend time with people who understand your ambitions and have something to contribute.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <script>
+    var opts = [
+      ["A", "Full bleed", "The photo runs off the edge of the screen, with no frame at all."],
+      ["B", "Print", "Square photos with a short caption underneath, like a magazine."],
+      ["C", "Arch", "Arched tops, echoing the brick arches in the room."],
+      ["D", "Cinematic", "The photo fills the whole hero and the words sit on top of it."]
+    ];
+    var host = document.getElementById("host"), tpl = document.getElementById("tpl");
+    var only = (location.search.match(/only=([A-D])/) || [])[1];
+    opts.forEach(function (o) {
+      if (only && o[0] !== only) return;
+      var tag = document.createElement("div");
+      tag.className = "opt-tag"; tag.id = o[0];
+      tag.innerHTML = '<div class="shell"><strong>' + o[0] + ' · ' + o[1] + '</strong><span>' + o[2] + '</span></div>';
+      host.appendChild(tag);
+      var box = document.createElement("div");
+      box.className = "treat t" + o[0];
+      box.appendChild(tpl.content.cloneNode(true));
+      if (o[0] !== "B") box.querySelector("figcaption").remove();
+      if (o[0] !== "D") box.querySelector(".hero-bg").remove();
+      else box.querySelector(".hero-photo").remove();
+      host.appendChild(box);
+    });
+  </script>
+</body>
+</html>
