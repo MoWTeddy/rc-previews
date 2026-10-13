@@ -67,12 +67,66 @@
       .tA .hero-photo { min-height: 0; aspect-ratio: 4 / 3; }
       .tD .pillars { gap: 1rem; }
     }
+
+    /* ---------- round 2 ---------- */
+    .treat .collage, .treat .band { display: none; }
+    .flat .pillar { background: transparent; }
+    .flat .pillar-body { padding: 1.4rem 0 0; }
+
+    /* E: black and white - photos in mono, colour comes back on hover */
+    .tE img, .tE .pillar figure img, .tE .hero-photo img { filter: grayscale(1) contrast(1.12) brightness(.92); transition: filter .6s var(--ease); }
+    .tE figure:hover img, .tE .pillar figure:hover img { filter: grayscale(0) saturate(.85); }
+    .tE .hero-photo::after { background: none; }
+
+    /* F: racing green tint - every photo washed in the brand green */
+    .tF figure { position: relative; background: var(--racing); }
+    .tF figure img { filter: grayscale(1) contrast(1.15) brightness(1.05); }
+    .tF figure::after { content: ""; position: absolute; inset: 0; background: #1f6b47; mix-blend-mode: color; pointer-events: none; }
+    .tF .hero-photo::after { box-shadow: none; }
+
+    /* G: collage - three photos overlapping at different sizes */
+    .tG .hero-photo { display: none; }
+    .tG .collage { display: block; position: relative; aspect-ratio: 1 / 1.05; }
+    .tG .collage img { position: absolute; object-fit: cover; filter: saturate(.85); }
+    .tG .collage .c1 { top: 0; right: 0; width: 72%; height: 62%; }
+    .tG .collage .c2 { bottom: 0; left: 0; width: 56%; height: 48%; z-index: 2; outline: 10px solid var(--ground); }
+    .tG .collage .c3 { bottom: 6%; right: 6%; width: 36%; height: 30%; z-index: 3; outline: 10px solid var(--ground); }
+
+    /* H: crop marks - square photos with small gold printer's marks at each corner */
+    .tH figure { --m: linear-gradient(var(--gold), var(--gold)); padding: 12px; overflow: visible;
+      background: var(--m) top left / 24px 1px, var(--m) top left / 1px 24px, var(--m) top right / 24px 1px, var(--m) top right / 1px 24px,
+                  var(--m) bottom left / 24px 1px, var(--m) bottom left / 1px 24px, var(--m) bottom right / 24px 1px, var(--m) bottom right / 1px 24px;
+      background-repeat: no-repeat; }
+    .tH .hero-photo { aspect-ratio: auto; }
+    .tH .hero-photo img { aspect-ratio: 674 / 760; }
+    .tH .hero-photo::after { display: none; }
+    .tH .pillar figure { aspect-ratio: auto; }
+    .tH .pillar figure img { aspect-ratio: 4 / 3; }
+
+    /* I: letterbox - the hero is words only, then one wide cinematic strip of photo */
+    .tI .hero-grid { grid-template-columns: minmax(0, 1fr); }
+    .tI .hero h1 { max-width: 20ch; }
+    .tI .hero-photo { display: none; }
+    .tI .band { display: block; aspect-ratio: 21 / 8; overflow: hidden; }
+    .tI .band img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; filter: saturate(.8); }
+    .tI .pillar figure { aspect-ratio: 16 / 9; }
+
+    /* J: prints - photos as real printed snapshots, ivory border, slightly askew */
+    .tJ .hero-photo { overflow: visible; aspect-ratio: auto; background: #efe9da; padding: 12px 12px 44px; transform: rotate(1.6deg); box-shadow: 0 18px 40px rgba(0,0,0,.45); }
+    .tJ .hero-photo img { aspect-ratio: 674 / 700; }
+    .tJ .hero-photo::after { display: none; }
+    .tJ .pillar figure { background: #efe9da; padding: 9px 9px 30px; aspect-ratio: auto; box-shadow: 0 12px 28px rgba(0,0,0,.4); }
+    .tJ .pillar figure img { aspect-ratio: 4 / 3; }
+    .tJ .pillar:nth-child(1) figure { transform: rotate(-1.4deg); }
+    .tJ .pillar:nth-child(2) figure { transform: rotate(.9deg); }
+    .tJ .pillar:nth-child(3) figure { transform: rotate(-.6deg); }
+    .group { font-family: var(--head); color: var(--gold); font-size: 1.6rem; margin: 4rem 0 -2rem; }
   </style>
 </head>
 <body>
   <div class="shell intro">
-    <p>Four ways to show the photos, using the real home hero and "What you get" cards. All four drop the rounded corners and thin outline. Cards and boxes go square to match.</p>
-    <p class="jump"><a href="#A">A · Full bleed</a><a href="#B">B · Print</a><a href="#C">C · Arch</a><a href="#D">D · Cinematic</a></p>
+    <p>Ten ways to show the photos (six new, E to J, then the first four), using the real home hero and "What you get" cards. All of them drop the rounded corners and thin outline. Cards and boxes go square to match.</p>
+    <p class="jump"><a href="#E">E · Black and white</a><a href="#F">F · Racing green</a><a href="#G">G · Collage</a><a href="#H">H · Crop marks</a><a href="#I">I · Letterbox</a><a href="#J">J · Prints</a><a href="#A">A · Full bleed</a><a href="#B">B · Print</a><a href="#C">C · Arch</a><a href="#D">D · Cinematic</a></p>
   </div>
   <div id="host"></div>
 
@@ -88,12 +142,14 @@
             <a class="more-link" href="#">Explore membership →</a>
           </div>
         </div>
+        <div class="collage"><img class="c1" src="assets/hero-room.jpg" alt=""><img class="c2" src="assets/circle-talk.jpg" alt=""><img class="c3" src="assets/event-champagne.jpg" alt=""></div>
         <figure class="hero-photo">
           <img src="assets/hero-room.jpg" alt="Founders in conversation at a Rare Company session" width="674" height="899">
           <figcaption>A Circle session in progress.</figcaption>
         </figure>
       </div>
     </header>
+    <div class="band"><img src="assets/hero-room.jpg" alt=""></div>
     <section class="sec sec-alt">
       <div class="shell">
         <div class="sec-head"><h2>What you get as a member</h2></div>
@@ -117,21 +173,28 @@
 
   <script>
     var opts = [
-      ["A", "Full bleed", "The photo runs off the edge of the screen, with no frame at all."],
+      ["E", "Black and white", "Every photo in black and white. Colour comes back when you hover over it.", "New options"],
+      ["F", "Racing green", "Every photo washed in the brand green, so they all feel part of one set."],
+      ["G", "Collage", "Three photos overlapping at different sizes, like a spread in a magazine."],
+      ["H", "Crop marks", "Square photos with small gold printer's marks at each corner."],
+      ["I", "Letterbox", "The hero is words only, then one wide cinematic strip of photo across the page."],
+      ["J", "Prints", "Photos as real printed snapshots: ivory border, slightly askew, casting a shadow."],
+      ["A", "Full bleed", "The photo runs off the edge of the screen, with no frame at all.", "Earlier options"],
       ["B", "Print", "Square photos with a short caption underneath, like a magazine."],
       ["C", "Arch", "Arched tops, echoing the brick arches in the room."],
       ["D", "Cinematic", "The photo fills the whole hero and the words sit on top of it."]
     ];
     var host = document.getElementById("host"), tpl = document.getElementById("tpl");
-    var only = (location.search.match(/only=([A-D])/) || [])[1];
+    var only = (location.search.match(/only=([A-J])/) || [])[1];
     opts.forEach(function (o) {
       if (only && o[0] !== only) return;
+      if (o[3]) { var g = document.createElement("h2"); g.className = "shell group"; g.textContent = o[3]; host.appendChild(g); }
       var tag = document.createElement("div");
       tag.className = "opt-tag"; tag.id = o[0];
       tag.innerHTML = '<div class="shell"><strong>' + o[0] + ' · ' + o[1] + '</strong><span>' + o[2] + '</span></div>';
       host.appendChild(tag);
       var box = document.createElement("div");
-      box.className = "treat t" + o[0];
+      box.className = "treat t" + o[0] + ("EFGHI".indexOf(o[0]) > -1 ? " flat" : "");
       box.appendChild(tpl.content.cloneNode(true));
       if (o[0] !== "B") box.querySelector("figcaption").remove();
       if (o[0] !== "D") box.querySelector(".hero-bg").remove();
