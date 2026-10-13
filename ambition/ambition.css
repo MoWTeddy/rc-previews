@@ -252,7 +252,7 @@ footer { border-top: 1px solid var(--hairline); padding: 3.5rem 0 2.5rem; backgr
 .fine { font-family: var(--sans); font-size: 0.90rem; color: var(--ivory-faint); margin-top: 1.4rem; }
 
 /* ------------------------------ apply form ------------------------------ */
-.form { max-width: 46rem; }
+.form { max-width: none; }
 .fieldset { border: 0; padding: 0; }
 .fieldset + .fieldset { margin-top: 3rem; padding-top: 2.4rem; border-top: 1px solid var(--gold-soft); }
 .fieldset legend { font-family: var(--head); font-size: clamp(1.3rem, 2vw, 1.6rem); color: var(--ivory); margin-bottom: 1.4rem; }
@@ -289,7 +289,7 @@ footer { border-top: 1px solid var(--hairline); padding: 3.5rem 0 2.5rem; backgr
 .fields { align-items: end; }
 
 /* five-step apply form (mirrors the live form) */
-.apply-box { max-width: 46rem; background: var(--ground-2); border-radius: var(--radius); padding: clamp(1.4rem, 4vw, 2.6rem); }
+.apply-box { max-width: none; background: var(--ground-2); border-radius: var(--radius); padding: clamp(1.4rem, 4vw, 2.6rem); }
 .form-page[hidden] { display: none; }
 .step-q { color: var(--ivory); font-size: 1.15rem; margin: 1.6rem 0 1rem; }
 .exception { margin-top: 1.4rem; }
