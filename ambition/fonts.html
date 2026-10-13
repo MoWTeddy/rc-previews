@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500&family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;1,400&family=Schibsted+Grotesk:wght@400;500;600&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;1,7..72,400&family=Albert+Sans:wght@400;500;600&family=Gloock&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&family=Hanken+Grotesk:wght@400;500;600&family=Familjen+Grotesk:wght@400;500;600&family=Spectral:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,400;0,500;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Archivo:wght@400;500&family=Marcellus&family=Cardo:ital,wght@0,400;1,400&family=Red+Hat+Text:wght@400;500&family=Noto+Serif+Display:ital,wght@0,500;1,400&family=Noto+Serif:ital,wght@0,400;1,400&family=Golos+Text:wght@400;500&family=Young+Serif&family=Petrona:ital,wght@0,400;1,400&family=Onest:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Host+Grotesk:wght@400;500&family=Funnel+Display:wght@500&family=Funnel+Sans:wght@400;500&family=Crimson+Pro:ital,wght@0,400;1,400&family=Archivo+Narrow:wght@600&family=Gelasio:ital,wght@0,400;1,400&family=Hedvig+Letters+Serif:opsz@12..24&family=Hedvig+Letters+Sans&family=Brygada+1918:ital,wght@0,400;0,500;1,400&family=Rethink+Sans:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
       --ground: #121311; --ground-2: #191a17; --card: #20211d; --racing: #0d3523;
@@ -39,7 +41,7 @@
     .hero { padding: clamp(2rem, 5vw, 3.5rem) 1.4rem; }
     .hero h1 { font-family: var(--head); font-weight: var(--head-weight); font-size: clamp(2rem, 4.6vw, 3.6rem); line-height: 1.1; letter-spacing: var(--head-track); max-width: 22ch; text-wrap: balance; }
     .hero h1 em { color: var(--gold); font-style: var(--em-style); }
-    .hero p { font-family: var(--body); font-size: 1.2rem; line-height: 1.65; color: var(--ivory-dim); max-width: 56ch; margin-top: 1.4rem; }
+    .hero p { font-family: var(--body); font-size: var(--body-size, 1.2rem); line-height: 1.65; color: var(--ivory-dim); max-width: 56ch; margin-top: 1.4rem; }
     .row { display: flex; flex-wrap: wrap; gap: 1.2rem 2rem; align-items: center; margin-top: 2rem; }
     .btn { font-family: var(--ui); font-size: calc(var(--ui-size) * 1.08); letter-spacing: var(--ui-track); text-transform: var(--ui-case); font-weight: var(--ui-weight); color: var(--ground); background: var(--gold); border-radius: 999px; padding: 1rem 2rem; text-decoration: none; }
     .more { font-family: var(--ui); font-size: calc(var(--ui-size) * 1.08); letter-spacing: var(--ui-track); text-transform: var(--ui-case); font-weight: var(--ui-weight); color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(200,169,106,.4); padding-bottom: .2rem; }
@@ -48,8 +50,8 @@
     .lower > div { padding: 1.6rem 1.4rem; }
     .lower > div + div { border-left: 1px solid var(--hairline); }
     .lower h2 { font-family: var(--head); font-weight: var(--head-weight); font-size: 1.7rem; line-height: 1.15; letter-spacing: var(--head-track); }
-    .lower .q { font-family: var(--body); font-size: 1.15rem; color: var(--ivory); margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--hairline); }
-    .lower .a { font-family: var(--body); font-size: 1.05rem; line-height: 1.6; color: var(--ivory-dim); margin-top: .5rem; }
+    .lower .q { font-family: var(--body); font-size: calc(var(--body-size, 1.2rem) * .96); color: var(--ivory); margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--hairline); }
+    .lower .a { font-family: var(--body); font-size: calc(var(--body-size, 1.2rem) * .88); line-height: 1.6; color: var(--ivory-dim); margin-top: .5rem; }
     label { display: block; font-family: var(--ui); font-size: var(--ui-size); letter-spacing: var(--ui-track); text-transform: var(--ui-case); font-weight: var(--ui-weight); color: var(--ivory-dim); margin-bottom: .5rem; }
     .input { font-family: var(--body); font-size: 1.05rem; color: var(--ivory-faint); background: var(--ground-2); border: 1px solid rgba(239,233,218,.18); border-radius: 8px; padding: .8rem 1rem; }
     .input + label { margin-top: 1.2rem; }
@@ -72,13 +74,37 @@
           --ui: "Hanken Grotesk", sans-serif; --ui-size: .95rem; --ui-track: .01em; --ui-case: none; --ui-weight: 500; --em-style: normal; }
     .o4 { --head: "Familjen Grotesk", sans-serif; --head-weight: 500; --head-track: -.025em; --body: "Spectral", serif;
           --ui: "Familjen Grotesk", sans-serif; --ui-size: .95rem; --ui-track: 0; --ui-case: none; --ui-weight: 500; --em-style: normal; }
+    .o5 { --head: "Besley", serif; --head-weight: 500; --head-track: -.01em; --body: "Besley", serif;
+          --ui: "Archivo", sans-serif; --ui-size: .95rem; --ui-track: 0; --ui-case: none; --ui-weight: 500; --em-style: normal;  }
+    .o6 { --head: "EB Garamond", serif; --head-weight: 500; --head-track: -.01em; --body: "EB Garamond", serif;
+          --ui: "Red Hat Text", sans-serif; --ui-size: .95rem; --ui-track: 0; --ui-case: none; --ui-weight: 500; --em-style: normal; --body-size: 1.32rem; }
+    .o7 { --head: "Marcellus", serif; --head-weight: 400; --head-track: 0; --body: "Cardo", serif;
+          --ui: "Golos Text", sans-serif; --ui-size: .95rem; --ui-track: 0; --ui-case: none; --ui-weight: 500; --em-style: normal; --body-size: 1.25rem; }
+    .o8 { --head: "Noto Serif Display", serif; --head-weight: 500; --head-track: -.01em; --body: "Noto Serif", serif;
+          --ui: "Host Grotesk", sans-serif; --ui-size: .95rem; --ui-track: 0; --ui-case: none; --ui-weight: 500; --em-style: normal; --body-size: 1.12rem; }
+    .o9 { --head: "Young Serif", serif; --head-weight: 400; --head-track: -.01em; --body: "Petrona", serif;
+          --ui: "Onest", sans-serif; --ui-size: .95rem; --ui-track: 0; --ui-case: none; --ui-weight: 500; --em-style: normal;  }
+    .o10 { --head: "Castoro", serif; --head-weight: 400; --head-track: 0; --body: "Castoro", serif;
+          --ui: "Rethink Sans", sans-serif; --ui-size: .95rem; --ui-track: 0; --ui-case: none; --ui-weight: 500; --em-style: normal; --body-size: 1.22rem; }
+    .o11 { --head: "Hedvig Letters Serif", serif; --head-weight: 400; --head-track: -.01em; --body: "Hedvig Letters Serif", serif;
+          --ui: "Hedvig Letters Sans", sans-serif; --ui-size: .95rem; --ui-track: 0; --ui-case: none; --ui-weight: 500; --em-style: normal; --body-size: 1.15rem; }
+    .o12 { --head: "Brygada 1918", serif; --head-weight: 500; --head-track: -.01em; --body: "Brygada 1918", serif;
+          --ui: "Funnel Sans", sans-serif; --ui-size: .95rem; --ui-track: 0; --ui-case: none; --ui-weight: 500; --em-style: normal;  }
+    .o13 { --head: "Funnel Display", sans-serif; --head-weight: 500; --head-track: -.02em; --body: "Crimson Pro", serif;
+          --ui: "Funnel Sans", sans-serif; --ui-size: .95rem; --ui-track: 0; --ui-case: none; --ui-weight: 500; --em-style: normal; --body-size: 1.3rem; }
+    .o14 { --head: "Archivo Narrow", sans-serif; --head-weight: 600; --head-track: -.005em; --body: "Gelasio", serif;
+          --ui: "Archivo", sans-serif; --ui-size: .95rem; --ui-track: 0; --ui-case: none; --ui-weight: 500; --em-style: normal; --body-size: 1.15rem; }
+    .group { font-family: Georgia, serif; color: var(--gold); font-size: 1.5rem; font-weight: 400; margin: 3.5rem 0 -1rem; }
+    .jump { display: flex; flex-wrap: wrap; gap: .5rem .9rem; margin-top: 1.2rem; font-size: .95rem; }
+    .jump a { color: var(--gold); }
   </style>
 </head>
 <body>
   <div class="shell">
     <div class="intro">
-      <p>Four alternatives to the current fonts, set on the same copy. The wordmark stays as it is in every option, because it's the fixed logo.</p>
-      <p>Every alternative drops the spaced capitals on buttons, nav and labels for normal sentence case. They also show the gold emphasis upright instead of in italics. "Current" is at the top for comparison.</p>
+      <p>Ten new pairings (5 to 14), each set on the same copy, with the current fonts at the top for comparison and the first four options at the bottom. The wordmark stays the same in every option, because it's the fixed logo.</p>
+      <p>Every option uses normal sentence case on buttons, nav and labels, and upright gold emphasis.</p>
+      <p class="jump" id="jump"></p>
     </div>
   </div>
 
@@ -113,16 +139,28 @@
 
   <script>
     var opts = [
-      ["o0", "Current", "Newsreader headings and body · IBM Plex Mono spaced capitals"],
-      ["o1", "Option 1: Heritage", "Libre Caslon headings and body · Schibsted Grotesk"],
+      ["o0", "Current", "Newsreader headings and body · IBM Plex Mono spaced capitals", "Current site"],
+      ["o5", "Option 5: Clarendon", "Besley headings and body · Archivo", "New options"],
+      ["o6", "Option 6: Garamond", "EB Garamond headings and body · Red Hat Text"],
+      ["o7", "Option 7: Engraved", "Marcellus headings · Cardo body · Golos Text"],
+      ["o8", "Option 8: Didone", "Noto Serif Display headings · Noto Serif body · Host Grotesk"],
+      ["o9", "Option 9: Editorial", "Young Serif headings · Petrona body · Onest"],
+      ["o10", "Option 10: Old bank", "Castoro headings and body · Rethink Sans"],
+      ["o11", "Option 11: Matched family", "Hedvig Letters Serif headings and body · Hedvig Letters Sans"],
+      ["o12", "Option 12: Brygada", "Brygada 1918 headings and body · Funnel Sans"],
+      ["o13", "Option 13: Modern display", "Funnel Display headings · Crimson Pro body · Funnel Sans"],
+      ["o14", "Option 14: Condensed", "Archivo Narrow headings · Gelasio body · Archivo"],
+      ["o1", "Option 1: Heritage", "Libre Caslon headings and body · Schibsted Grotesk", "Earlier options"],
       ["o2", "Option 2: Modern literary", "Literata headings and body · Albert Sans"],
-      ["o3", "Option 3: Luxe", "Gloock headings · Source Serif body · Hanken Grotesk"],
+      ["o3", "Option 3: Luxe (on the preview now)", "Gloock headings · Source Serif body · Hanken Grotesk"],
       ["o4", "Option 4: Contemporary", "Familjen Grotesk headings · Spectral body · Familjen Grotesk"]
     ];
     var host = document.getElementById("options"), tpl = document.getElementById("sample");
     opts.forEach(function (o) {
+      if (o[3]) { var g = document.createElement("h2"); g.className = "group"; g.textContent = o[3]; host.appendChild(g); }
       var box = document.createElement("section");
-      box.className = "opt " + o[0];
+      box.className = "opt " + o[0]; box.id = o[0];
+      var j = document.createElement("a"); j.href = "#" + o[0]; j.textContent = o[0] === "o0" ? "Current" : o[1].split(":")[0].replace("Option ", ""); document.getElementById("jump").appendChild(j);
       box.innerHTML = '<div class="opt-tag"><strong>' + o[1] + '</strong><span>' + o[2] + '</span></div>';
       box.appendChild(tpl.content.cloneNode(true));
       host.appendChild(box);
