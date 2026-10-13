@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Hedvig+Letters+Serif:opsz@12..24&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="ambition.css?v=16">
+  <link rel="stylesheet" href="ambition.css?v=17">
 </head>
 <body>
   <div class="concept">Concept for review · Not live · Revised copy + dark theme</div>
@@ -134,15 +134,14 @@
 
   <section class="sec sec-alt">
     <div class="shell">
-      <div class="sec-head rv quotes-head"><h2>In their words.</h2>
-        <div class="quotes-nav"><button type="button" data-dir="-1" aria-label="Previous quotes">←</button><button type="button" data-dir="1" aria-label="More quotes">→</button></div>
-      </div>
+      <div class="sec-head rv"><h2>In their words.</h2></div>
       <div class="quotes quotes-scroll" id="home-quotes">
         <figure class="quote"><p>Since joining, my group has increased in value to nearly £10 million, and I've taken more time for my family and invested over £500,000 outside of the business. Compared to advisors, this has been a major breath of fresh air.”</p><cite>Matt R · Managing Director, Property Investment Firm</cite></figure>
         <figure class="quote"><p>I spent years in business-owner networks getting very little from them. One dinner with Rare Company, and I have been hooked ever since.”</p><cite>Rihui W · Director, AI GEO Technologies</cite></figure>
         <figure class="quote"><p>What Eddie and Astan have created is far superior to any traditional business owner networking groups which I've tried in the past. This is the real deal if you want to increase your net worth from your business properly and sustainably.”</p><cite>Christopher R · Co-CEO, iGaming Tech Suppliers</cite></figure>
         <figure class="quote"><p>It's the only room I've been in where nobody tried to sell anything to me or wanted anything from me. I never felt like the smartest, but I often feel like I can add significant value to others in my Circle when talking about their net worth.”</p><cite>Robert C · Founding Partner, Communications Specialists</cite></figure>
       </div>
+      <div class="quote-dots" id="quote-dots" aria-label="Choose quotes"></div>
     </div>
   </section>
 
@@ -213,12 +212,26 @@
   <script src="reveal.js"></script>
   <script>
     (function () {
-      var row = document.getElementById("home-quotes");
-      document.querySelectorAll(".quotes-nav button").forEach(function (b) {
-        b.addEventListener("click", function () {
-          row.scrollBy({ left: row.clientWidth * Number(b.dataset.dir), behavior: "smooth" });
-        });
-      });
+      var row = document.getElementById("home-quotes"), dots = document.getElementById("quote-dots");
+      function pages() { return Math.max(1, Math.round(row.scrollWidth / row.clientWidth)); }
+      function build() {
+        dots.innerHTML = "";
+        for (var i = 0; i < pages(); i++) {
+          var d = document.createElement("button");
+          d.type = "button"; d.setAttribute("aria-label", "Quotes " + (i + 1));
+          d.addEventListener("click", (function (n) { return function () { row.scrollTo({ left: n * row.clientWidth, behavior: "smooth" }); }; })(i));
+          dots.appendChild(d);
+        }
+        mark();
+      }
+      function mark() {
+        var max = row.scrollWidth - row.clientWidth, n = dots.children.length;
+        var on = max > 0 ? Math.round(row.scrollLeft / max * (n - 1)) : 0;
+        for (var i = 0; i < n; i++) dots.children[i].classList.toggle("on", i === on);
+      }
+      row.addEventListener("scroll", mark, { passive: true });
+      window.addEventListener("resize", build);
+      build();
     })();
   </script>
 </body>

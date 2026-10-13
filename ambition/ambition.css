@@ -229,14 +229,14 @@ footer { border-top: 1px solid var(--hairline); padding: 3.5rem 0 2.5rem; backgr
 .quote p::before { content: "\201C"; display: block; font-style: normal; font-size: 2.4rem; line-height: .6; color: var(--gold); margin-bottom: .6rem; }
 .quote cite { font-style: normal; font-family: var(--sans); font-size: 0.90rem; color: var(--ivory-faint); line-height: 1.6; }
 /* home: two quotes at a time, scroll or arrows for the rest */
-.quotes-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; }
-.quotes-nav { display: flex; gap: .6rem; }
-.quotes-nav button { width: 2.8rem; height: 2.8rem; border-radius: 50%; border: 0; background: var(--card); color: var(--gold); font: inherit; font-size: 1.1rem; cursor: pointer; transition: background .3s var(--ease); }
-.quotes-nav button:hover { background: var(--racing); }
 .quotes-scroll { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
 .quotes-scroll::-webkit-scrollbar { display: none; }
 .quotes-scroll .quote { flex: 0 0 calc(50% - .5rem); scroll-snap-align: start; }
 @media (max-width: 860px) { .quotes-scroll .quote { flex-basis: 86%; } }
+.quote-dots { display: flex; justify-content: center; gap: .55rem; margin-top: 1.8rem; }
+.quote-dots button { width: .5rem; height: .5rem; padding: 0; border: 0; border-radius: 999px; background: rgba(239, 233, 218, .25); cursor: pointer; transition: width .45s var(--ease), background .45s var(--ease); }
+.quote-dots button.on { width: 1.6rem; background: var(--gold); }
+.quotes-scroll { scroll-behavior: smooth; }
 @media (max-width: 760px) { .quotes { grid-template-columns: minmax(0, 1fr); } }
 .founders { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 3vw, 2rem); }
 .founder figure { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 5; background: #0b0b0a; }
